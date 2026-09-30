@@ -1,776 +1,5053 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="theme-color" content="#05060a">
-  <meta name="description" content="PROJECT 347 — global talent discovery, athlete development and digital infrastructure for Australian Football.">
+<title>PROJECT 347 | Global Talent</title>
 
-  <meta property="og:title" content="PROJECT 347">
-  <meta property="og:description" content="Global talent. One pathway. Built around Australian Football.">
-  <meta property="og:image" content="https://project347.tech/assets/p347.png">
-  <meta property="og:url" content="https://project347.tech/">
+<meta name="description" content="PROJECT 347 — Global talent discovery, athlete development and a digital ecosystem built around Australian Football.">
 
-  <title>PROJECT 347 — Global Talent</title>
+<meta property="og:title" content="PROJECT 347">
+<meta property="og:description" content="Global Talent. One Pathway. PROJECT 347.">
+<meta property="og:image" content="https://project347.tech/assets/p347.png">
+<meta property="og:url" content="https://project347.tech">
+<meta property="og:type" content="website">
 
-  <link rel="stylesheet" href="styles.css">
+<style>
+
+/* =========================================================
+   PROJECT 347
+   PREMIUM SINGLE FILE WEBSITE
+========================================================= */
+
+:root{
+    --bg:#050609;
+    --bg2:#080b11;
+
+    --white:#ffffff;
+    --text:#f5f7fb;
+    --muted:#9ea6b5;
+    --muted2:#666f80;
+
+    --aqua:#5af3d2;
+    --blue:#59bbff;
+    --purple:#8d78ff;
+    --gold:#e7c977;
+
+    --panel:rgba(255,255,255,.055);
+    --panel2:rgba(255,255,255,.09);
+
+    --border:rgba(255,255,255,.11);
+    --border2:rgba(255,255,255,.19);
+
+    --max:1240px;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    background:
+        radial-gradient(circle at 10% 5%,rgba(89,187,255,.13),transparent 27%),
+        radial-gradient(circle at 88% 9%,rgba(141,120,255,.12),transparent 27%),
+        radial-gradient(circle at 50% 80%,rgba(90,243,210,.07),transparent 34%),
+        var(--bg);
+
+    color:var(--text);
+
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    overflow-x:hidden;
+}
+
+
+/* GRID BACKGROUND */
+
+body:before{
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:0;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,.018) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.018) 1px,
+            transparent 1px
+        );
+
+    background-size:50px 50px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 90%
+        );
+}
+
+
+/* =========================================================
+   BASIC
+========================================================= */
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    font:inherit;
+}
+
+img{
+    max-width:100%;
+}
+
+::selection{
+    background:rgba(90,243,210,.25);
+}
+
+.container{
+
+    width:min(
+        calc(100% - 36px),
+        var(--max)
+    );
+
+    margin:auto;
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+/* =========================================================
+   CANVAS PARTICLES
+========================================================= */
+
+#particles{
+
+    position:fixed;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    pointer-events:none;
+
+    z-index:0;
+
+    opacity:.6;
+}
+
+
+/* =========================================================
+   CURSOR GLOW
+========================================================= */
+
+.cursorGlow{
+
+    position:fixed;
+
+    width:400px;
+
+    height:400px;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    z-index:0;
+
+    transform:
+        translate(-50%,-50%);
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(90,243,210,.10),
+            rgba(89,187,255,.04) 40%,
+            transparent 70%
+        );
+
+    filter:blur(12px);
+
+    opacity:0;
+
+    transition:
+        opacity .25s;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navWrap{
+
+    position:fixed;
+
+    top:18px;
+
+    left:0;
+
+    right:0;
+
+    z-index:100;
+}
+
+.nav{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    padding:
+        10px 12px 10px 14px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        18px;
+
+    background:
+        rgba(5,7,11,.72);
+
+    backdrop-filter:
+        blur(24px);
+
+    box-shadow:
+        0 16px 55px
+        rgba(0,0,0,.32);
+}
+
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:11px;
+
+    font-weight:900;
+
+    letter-spacing:-.03em;
+}
+
+.brand img{
+
+    width:40px;
+
+    height:40px;
+
+    object-fit:contain;
+
+    filter:
+        drop-shadow(
+            0 0 18px
+            rgba(90,243,210,.18)
+        );
+}
+
+.brandText small{
+
+    display:block;
+
+    margin-top:1px;
+
+    color:var(--muted2);
+
+    font-size:9px;
+
+    letter-spacing:.18em;
+
+    text-transform:uppercase;
+}
+
+
+.navLinks{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:3px;
+}
+
+.navLinks a{
+
+    padding:
+        10px 12px;
+
+    border-radius:11px;
+
+    color:#dce1ea;
+
+    font-size:13px;
+
+    transition:.2s;
+}
+
+.navLinks a:hover{
+
+    background:var(--panel);
+
+    color:#fff;
+}
+
+
+.navActions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    padding:
+        12px 17px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:13px;
+
+    background:
+        var(--panel);
+
+    color:#fff;
+
+    font-size:13px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:
+        .22s;
+}
+
+.btn:hover{
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        var(--border2);
+
+    background:
+        var(--panel2);
+
+    box-shadow:
+        0 14px 40px
+        rgba(0,0,0,.22);
+}
+
+.btnPrimary{
+
+    color:#03110e;
+
+    border-color:transparent;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--aqua),
+            #afffe9
+        );
+
+    box-shadow:
+
+        0 12px 34px
+        rgba(90,243,210,.17);
+}
+
+.btnPrimary:hover{
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #78f6dc,
+            #d2fff3
+        );
+}
+
+
+.btnTrade{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-color:
+        rgba(90,243,210,.28);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(90,243,210,.13),
+            rgba(89,187,255,.11)
+        );
+}
+
+
+.btnTrade:before{
+
+    content:"";
+
+    position:absolute;
+
+    width:80px;
+
+    height:220%;
+
+    top:-60%;
+
+    left:-120px;
+
+    transform:
+        rotate(25deg);
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.20),
+            transparent
+        );
+
+    animation:
+        buttonShine
+        4.5s
+        infinite;
+}
+
+@keyframes buttonShine{
+
+    0%{
+        left:-130px;
+    }
+
+    35%{
+        left:125%;
+    }
+
+    100%{
+        left:125%;
+    }
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:
+        130px 0 80px;
+}
+
+.heroGrid{
+
+    display:grid;
+
+    grid-template-columns:
+        1.15fr
+        .85fr;
+
+    gap:60px;
+
+    align-items:center;
+}
+
+
+.eyebrow{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    padding:
+        8px 11px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    color:
+        #d4d8e0;
+
+    font-size:
+        11px;
+
+    font-weight:
+        800;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .12em;
+}
+
+
+.liveDot{
+
+    width:7px;
+
+    height:7px;
+
+    border-radius:50%;
+
+    background:
+        var(--aqua);
+
+    box-shadow:
+
+        0 0 0 6px
+        rgba(90,243,210,.08),
+
+        0 0 22px
+        var(--aqua);
+
+    animation:
+        pulseDot
+        2.1s
+        infinite;
+}
+
+@keyframes pulseDot{
+
+    50%{
+
+        box-shadow:
+
+            0 0 0 11px
+            rgba(90,243,210,0),
+
+            0 0 27px
+            var(--aqua);
+    }
+}
+
+
+.hero h1{
+
+    margin:
+        24px 0;
+
+    font-size:
+        clamp(
+            62px,
+            8.7vw,
+            122px
+        );
+
+    line-height:
+        .86;
+
+    letter-spacing:
+        -.075em;
+
+    font-weight:
+        950;
+}
+
+
+.gradientText{
+
+    display:block;
+
+    color:transparent;
+
+    background:
+
+        linear-gradient(
+            100deg,
+            #fff 5%,
+            var(--aqua) 43%,
+            var(--blue) 67%,
+            #ded7ff 93%
+        );
+
+    background-clip:text;
+
+    -webkit-background-clip:text;
+}
+
+
+.heroText{
+
+    max-width:
+        690px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        clamp(
+            17px,
+            2vw,
+            21px
+        );
+
+    line-height:
+        1.7;
+}
+
+
+.heroActions{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-top:30px;
+}
+
+
+.heroStats{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:30px;
+
+    padding-top:25px;
+
+    margin-top:40px;
+
+    border-top:
+        1px solid var(--border);
+}
+
+.heroStats strong{
+
+    display:block;
+
+    font-size:
+        17px;
+}
+
+.heroStats span{
+
+    display:block;
+
+    margin-top:
+        3px;
+
+    color:
+        var(--muted2);
+
+    font-size:
+        10px;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .10em;
+}
+
+
+/* =========================================================
+   HERO TOKEN
+========================================================= */
+
+.tokenStage{
+
+    min-height:
+        590px;
+
+    position:relative;
+
+    display:grid;
+
+    place-items:center;
+
+    perspective:
+        1100px;
+}
+
+.ring{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(255,255,255,.11);
+
+    animation:
+        rotateRing
+        20s
+        linear
+        infinite;
+}
+
+.ring1{
+
+    width:480px;
+
+    height:480px;
+}
+
+.ring2{
+
+    width:385px;
+
+    height:385px;
+
+    border-style:
+        dashed;
+
+    opacity:.7;
+
+    animation-duration:
+        14s;
+
+    animation-direction:
+        reverse;
+}
+
+.ring3{
+
+    width:550px;
+
+    height:250px;
+
+    transform:
+        rotateX(68deg);
+
+    animation-duration:
+        24s;
+}
+
+
+@keyframes rotateRing{
+
+    to{
+        rotate:360deg;
+    }
+}
+
+
+.tokenCore{
+
+    width:
+        min(64vw,320px);
+
+    aspect-ratio:
+        1;
+
+    display:grid;
+
+    place-items:center;
+
+    position:relative;
+
+    z-index:2;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 38% 28%,
+            rgba(255,255,255,.12),
+            rgba(255,255,255,.025) 40%,
+            rgba(0,0,0,.38) 75%
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.16);
+
+    box-shadow:
+
+        inset 0 0 70px
+        rgba(90,243,210,.04),
+
+        0 38px 110px
+        rgba(0,0,0,.50),
+
+        0 0 90px
+        rgba(89,187,255,.08);
+
+    transition:
+        transform .12s ease-out;
+
+    transform-style:
+        preserve-3d;
+}
+
+
+.tokenCore:before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-35%;
+
+    background:
+
+        conic-gradient(
+            from 30deg,
+            transparent,
+            rgba(90,243,210,.11),
+            transparent 30%,
+            rgba(141,120,255,.10),
+            transparent 65%
+        );
+
+    animation:
+        rotateRing
+        11s
+        linear
+        infinite;
+}
+
+
+.tokenCore img{
+
+    width:75%;
+
+    height:75%;
+
+    object-fit:contain;
+
+    position:relative;
+
+    z-index:3;
+
+    filter:
+
+        drop-shadow(
+            0 15px 35px
+            rgba(0,0,0,.45)
+        );
+}
+
+
+.floatTag{
+
+    position:absolute;
+
+    padding:
+        10px 13px;
+
+    border-radius:
+        13px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(8,10,15,.77);
+
+    backdrop-filter:
+        blur(15px);
+
+    color:#dfe2e9;
+
+    font-size:
+        11px;
+
+    box-shadow:
+        0 15px 45px
+        rgba(0,0,0,.25);
+
+    animation:
+        floatTag
+        5s ease-in-out
+        infinite;
+}
+
+.floatTag b{
+
+    color:
+        var(--aqua);
+}
+
+.tag1{
+
+    left:0;
+
+    top:19%;
+}
+
+.tag2{
+
+    right:0;
+
+    top:33%;
+
+    animation-delay:
+        -1.4s;
+}
+
+.tag3{
+
+    left:8%;
+
+    bottom:16%;
+
+    animation-delay:
+        -3s;
+}
+
+@keyframes floatTag{
+
+    50%{
+
+        transform:
+            translateY(-10px);
+    }
+}
+
+
+/* =========================================================
+   TICKER
+========================================================= */
+
+.ticker{
+
+    position:relative;
+
+    z-index:2;
+
+    overflow:hidden;
+
+    border-top:
+        1px solid var(--border);
+
+    border-bottom:
+        1px solid var(--border);
+
+    background:
+        rgba(255,255,255,.018);
+}
+
+.tickerTrack{
+
+    display:flex;
+
+    width:max-content;
+
+    animation:
+        tickerMove
+        35s linear
+        infinite;
+}
+
+.tickerItem{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:
+        15px 30px;
+
+    color:#abb2c0;
+
+    font-size:
+        11px;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .16em;
+}
+
+.tickerItem:after{
+
+    content:"◆";
+
+    color:
+        var(--aqua);
+
+    font-size:
+        7px;
+}
+
+@keyframes tickerMove{
+
+    to{
+
+        transform:
+            translateX(-50%);
+    }
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+section{
+
+    padding:
+        110px 0;
+}
+
+
+.sectionTop{
+
+    display:flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        flex-end;
+
+    gap:40px;
+
+    margin-bottom:
+        48px;
+}
+
+
+.kicker{
+
+    margin-bottom:
+        14px;
+
+    color:
+        var(--aqua);
+
+    font-size:
+        11px;
+
+    font-weight:
+        850;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .17em;
+}
+
+
+.sectionTitle{
+
+    margin:0;
+
+    max-width:
+        850px;
+
+    font-size:
+        clamp(
+            40px,
+            5vw,
+            70px
+        );
+
+    line-height:
+        1;
+
+    letter-spacing:
+        -.055em;
+}
+
+
+.sectionDescription{
+
+    max-width:
+        690px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        17px;
+
+    line-height:
+        1.7;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:
+        14px;
+}
+
+
+.card{
+
+    min-height:
+        285px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:
+        24px;
+
+    border-radius:
+        26px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.06),
+            rgba(255,255,255,.025)
+        );
+
+    box-shadow:
+        0 30px 90px
+        rgba(0,0,0,.30);
+
+    transition:
+        .25s;
+}
+
+.card:hover{
+
+    border-color:
+        rgba(90,243,210,.30);
+}
+
+.card:after{
+
+    content:"";
+
+    position:absolute;
+
+    width:
+        170px;
+
+    height:
+        170px;
+
+    right:
+        -45px;
+
+    top:
+        -45px;
+
+    border-radius:
+        50%;
+
+    opacity:
+        0;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(90,243,210,.14),
+            transparent 70%
+        );
+
+    transition:
+        .3s;
+}
+
+.card:hover:after{
+
+    opacity:
+        1;
+}
+
+
+.cardNumber{
+
+    color:
+        var(--muted2);
+
+    font-size:
+        11px;
+
+    letter-spacing:
+        .12em;
+}
+
+
+.card h3{
+
+    margin:
+        75px 0 10px;
+
+    font-size:
+        24px;
+
+    letter-spacing:
+        -.035em;
+}
+
+
+.card p{
+
+    margin:0;
+
+    color:
+        var(--muted);
+
+    font-size:
+        13px;
+
+    line-height:
+        1.7;
+}
+
+
+/* =========================================================
+   PROJECT MESSAGE
+========================================================= */
+
+.featureBand{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:
+        60px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        34px;
+
+    background:
+
+        radial-gradient(
+            circle at 83% 20%,
+            rgba(89,187,255,.13),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 18% 78%,
+            rgba(141,120,255,.13),
+            transparent 25%
+        ),
+
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.06),
+            rgba(255,255,255,.02)
+        );
+
+    box-shadow:
+
+        0 38px 120px
+        rgba(0,0,0,.36);
+}
+
+.featureBand:before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    opacity:
+        .33;
+
+    background-image:
+
+        radial-gradient(
+            rgba(255,255,255,.17) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        22px 22px;
+
+    mask-image:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            black,
+            transparent
+        );
+}
+
+.featureContent{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:
+        850px;
+}
+
+.featureBand h2{
+
+    margin:
+        0;
+
+    font-size:
+        clamp(
+            43px,
+            6vw,
+            78px
+        );
+
+    line-height:
+        .96;
+
+    letter-spacing:
+        -.06em;
+}
+
+.featureBand p{
+
+    max-width:
+        680px;
+
+    margin-top:
+        22px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        16px;
+
+    line-height:
+        1.75;
+}
+
+
+/* =========================================================
+   P347 ASSET SECTION
+========================================================= */
+
+.assetShell{
+
+    display:grid;
+
+    grid-template-columns:
+        .9fr
+        1.1fr;
+
+    gap:
+        14px;
+
+    padding:
+        14px;
+
+    border-radius:
+        34px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(90,243,210,.05),
+            rgba(141,120,255,.035),
+            rgba(255,255,255,.02)
+        );
+
+    box-shadow:
+
+        0 40px 130px
+        rgba(0,0,0,.37);
+}
+
+
+.assetVisual,
+.assetInfo{
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        24px;
+
+    background:
+        rgba(5,6,10,.70);
+}
+
+
+.assetVisual{
+
+    min-height:
+        520px;
+
+    display:grid;
+
+    place-items:center;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.assetVisual:before{
+
+    content:"";
+
+    position:absolute;
+
+    width:
+        500px;
+
+    height:
+        500px;
+
+    border-radius:
+        50%;
+
+    border:
+        1px solid
+        rgba(90,243,210,.12);
+
+    animation:
+        rotateRing
+        28s linear
+        infinite;
+}
+
+.assetVisual:after{
+
+    content:"";
+
+    position:absolute;
+
+    width:
+        350px;
+
+    height:
+        350px;
+
+    border-radius:
+        50%;
+
+    border:
+        1px dashed
+        rgba(255,255,255,.13);
+
+    animation:
+        rotateRing
+        18s linear
+        infinite reverse;
+}
+
+
+.assetCoin{
+
+    width:
+        215px;
+
+    height:
+        215px;
+
+    position:relative;
+
+    z-index:3;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:
+        50%;
+
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+
+    background:
+        rgba(255,255,255,.04);
+
+    box-shadow:
+
+        0 35px 70px
+        rgba(0,0,0,.42),
+
+        0 0 85px
+        rgba(90,243,210,.08);
+}
+
+.assetCoin img{
+
+    width:
+        78%;
+
+    height:
+        78%;
+
+    object-fit:
+        contain;
+}
+
+
+.assetInfo{
+
+    padding:
+        28px;
+}
+
+
+.assetHeader{
+
+    display:flex;
+
+    align-items:
+        flex-start;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+    padding-bottom:
+        22px;
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+
+.assetName{
+
+    font-size:
+        36px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        -.045em;
+}
+
+
+.assetSubtitle{
+
+    margin-top:
+        5px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        13px;
+}
+
+
+.assetCode{
+
+    padding:
+        8px 11px;
+
+    border-radius:
+        10px;
+
+    border:
+        1px solid
+        rgba(90,243,210,.18);
+
+    background:
+        rgba(90,243,210,.09);
+
+    color:
+        var(--aqua);
+
+    font-size:
+        12px;
+
+    font-weight:
+        850;
+}
+
+
+.statsGrid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:
+        10px;
+
+    margin:
+        20px 0;
+}
+
+
+.statBox{
+
+    padding:
+        17px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        16px;
+
+    background:
+        rgba(255,255,255,.025);
+}
+
+
+.statBox span{
+
+    color:
+        var(--muted2);
+
+    font-size:
+        10px;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .11em;
+}
+
+
+.statBox strong{
+
+    display:block;
+
+    margin-top:
+        8px;
+
+    font-size:
+        21px;
+
+    letter-spacing:
+        -.03em;
+}
+
+
+.walletBox{
+
+    padding:
+        15px;
+
+    margin-top:
+        10px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        15px;
+
+    background:
+        #06070b;
+}
+
+
+.walletLabel{
+
+    margin-bottom:
+        9px;
+
+    color:
+        var(--muted2);
+
+    font-size:
+        10px;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .12em;
+}
+
+
+.walletRow{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:
+        10px;
+}
+
+
+.walletAddress{
+
+    flex:1;
+
+    overflow:hidden;
+
+    white-space:
+        nowrap;
+
+    text-overflow:
+        ellipsis;
+
+    color:#d1d5de;
+
+    font-size:
+        11px;
+
+    font-family:
+        monospace;
+}
+
+
+.copyButton{
+
+    padding:
+        7px 9px;
+
+    border-radius:
+        9px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        var(--panel);
+
+    color:
+        #fff;
+
+    cursor:
+        pointer;
+
+    font-size:
+        10px;
+}
+
+
+.assetButtons{
+
+    display:flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        8px;
+
+    margin-top:
+        19px;
+}
+
+
+/* =========================================================
+   OFFICIAL LINKS
+========================================================= */
+
+.linksGrid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:
+        12px;
+}
+
+
+.linkCard{
+
+    min-height:
+        160px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:
+        21px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        21px;
+
+    background:
+        rgba(255,255,255,.028);
+
+    transition:
+        .25s;
+}
+
+.linkCard:hover{
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(90,243,210,.28);
+
+    background:
+        rgba(255,255,255,.055);
+}
+
+.linkCard span{
+
+    display:block;
+
+    color:
+        var(--muted2);
+
+    font-size:
+        10px;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .13em;
+}
+
+.linkCard strong{
+
+    display:block;
+
+    margin-top:
+        66px;
+
+    font-size:
+        18px;
+
+    letter-spacing:
+        -.025em;
+}
+
+
+/* =========================================================
+   ROADMAP
+========================================================= */
+
+.roadmap{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        27px;
+
+    overflow:hidden;
+
+    background:
+        rgba(255,255,255,.02);
+}
+
+
+.phase{
+
+    min-height:
+        285px;
+
+    padding:
+        26px;
+
+    position:relative;
+
+    border-right:
+        1px solid var(--border);
+}
+
+.phase:last-child{
+
+    border-right:0;
+}
+
+.phaseCurrent{
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(90,243,210,.055),
+            transparent
+        );
+}
+
+.phaseCurrent:before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    right:0;
+
+    height:2px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            var(--aqua),
+            var(--blue)
+        );
+}
+
+.phaseLabel{
+
+    color:
+        var(--muted2);
+
+    font-size:
+        10px;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        .13em;
+}
+
+.phase h3{
+
+    margin:
+        78px 0 10px;
+
+    font-size:
+        24px;
+
+    letter-spacing:
+        -.035em;
+}
+
+.phase p{
+
+    margin:0;
+
+    color:
+        var(--muted);
+
+    font-size:
+        13px;
+
+    line-height:
+        1.65;
+}
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.faq{
+
+    max-width:
+        920px;
+
+    margin:auto;
+}
+
+
+.faqItem{
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+
+.faqQuestion{
+
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:
+        space-between;
+
+    gap:20px;
+
+    padding:
+        23px 0;
+
+    border:0;
+
+    background:none;
+
+    color:#fff;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    font-size:
+        17px;
+
+    font-weight:
+        750;
+}
+
+
+.faqPlus{
+
+    color:
+        var(--muted);
+
+    font-size:
+        25px;
+
+    transition:
+        .25s;
+}
+
+
+.faqAnswer{
+
+    max-height:0;
+
+    overflow:hidden;
+
+    padding-right:
+        60px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        14px;
+
+    line-height:
+        1.75;
+
+    transition:
+        max-height .35s,
+        padding .35s;
+}
+
+
+.faqItem.open
+.faqAnswer{
+
+    max-height:
+        260px;
+
+    padding-bottom:
+        22px;
+}
+
+
+.faqItem.open
+.faqPlus{
+
+    transform:
+        rotate(45deg);
+}
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal{
+
+    opacity:0;
+
+    transform:
+        translateY(28px);
+
+    transition:
+
+        opacity .75s ease,
+        transform .75s ease;
+}
+
+.reveal.visible{
+
+    opacity:1;
+
+    transform:none;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    position:relative;
+
+    z-index:2;
+
+    padding:
+        46px 0 28px;
+
+    border-top:
+        1px solid var(--border);
+}
+
+
+.footerTop{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    justify-content:
+        space-between;
+
+    gap:35px;
+}
+
+
+.footerBrand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+}
+
+.footerBrand img{
+
+    width:48px;
+
+    height:48px;
+
+    object-fit:contain;
+}
+
+.footerBrand strong{
+
+    display:block;
+
+    font-size:
+        18px;
+}
+
+.footerBrand span{
+
+    display:block;
+
+    margin-top:
+        3px;
+
+    color:
+        var(--muted2);
+
+    font-size:
+        11px;
+}
+
+
+.footerLinks{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:
+        flex-end;
+
+    gap:
+        18px;
+}
+
+.footerLinks a{
+
+    color:
+        var(--muted);
+
+    font-size:
+        12px;
+
+    transition:
+        .2s;
+}
+
+.footerLinks a:hover{
+
+    color:#fff;
+}
+
+
+.footerBottom{
+
+    display:flex;
+
+    justify-content:
+        space-between;
+
+    gap:
+        35px;
+
+    padding-top:
+        24px;
+
+    margin-top:
+        28px;
+
+    border-top:
+        1px solid var(--border);
+
+    color:
+        var(--muted2);
+
+    font-size:
+        10px;
+
+    line-height:
+        1.7;
+}
+
+
+.disclaimer{
+
+    max-width:
+        790px;
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:25px;
+
+    z-index:500;
+
+    padding:
+        11px 15px;
+
+    border:
+        1px solid var(--border2);
+
+    border-radius:
+        12px;
+
+    background:
+        #13161e;
+
+    color:#fff;
+
+    font-size:
+        12px;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transform:
+        translate(-50%,20px);
+
+    transition:
+        .25s;
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.4);
+}
+
+.toast.show{
+
+    opacity:1;
+
+    transform:
+        translate(-50%,0);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:1050px){
+
+    .heroGrid{
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .tokenStage{
+
+        min-height:
+            480px;
+    }
+
+    .cards{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .assetShell{
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .linksGrid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .roadmap{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .phase:nth-child(2){
+
+        border-right:0;
+    }
+
+    .navLinks{
+
+        display:none;
+    }
+}
+
+
+@media(max-width:720px){
+
+    .container{
+
+        width:
+            calc(100% - 22px);
+    }
+
+    .navWrap{
+
+        top:10px;
+    }
+
+    .nav{
+
+        border-radius:
+            15px;
+    }
+
+    .navActions
+    .btnTrade{
+
+        display:none;
+    }
+
+    .brandText small{
+
+        display:none;
+    }
+
+    .hero{
+
+        padding-top:
+            115px;
+    }
+
+    .hero h1{
+
+        font-size:
+            60px;
+    }
+
+    .tokenStage{
+
+        min-height:
+            410px;
+    }
+
+    .ring1{
+
+        width:
+            350px;
+
+        height:
+            350px;
+    }
+
+    .ring2{
+
+        width:
+            285px;
+
+        height:
+            285px;
+    }
+
+    .ring3{
+
+        width:
+            390px;
+
+        height:
+            200px;
+    }
+
+    section{
+
+        padding:
+            82px 0;
+    }
+
+    .sectionTop{
+
+        display:block;
+    }
+
+    .cards{
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .linksGrid{
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .statsGrid{
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .roadmap{
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .phase{
+
+        border-right:0;
+
+        border-bottom:
+            1px solid var(--border);
+    }
+
+    .phase:last-child{
+
+        border-bottom:0;
+    }
+
+    .featureBand{
+
+        padding:
+            35px 24px;
+    }
+
+    .footerTop{
+
+        display:block;
+    }
+
+    .footerLinks{
+
+        justify-content:
+            flex-start;
+
+        margin-top:
+            25px;
+    }
+
+    .footerBottom{
+
+        display:block;
+    }
+}
+
+
+/* ========================================================= */
+
+</style>
 </head>
+
 
 <body>
 
+
 <canvas id="particles"></canvas>
-<div class="cursor-glow"></div>
 
-<div class="nav-wrap">
-  <div class="container">
-
-    <nav class="nav">
-
-      <a class="brand" href="index.html">
-        <img src="assets/p347.png" alt="PROJECT 347 logo">
-
-        <div>
-          PROJECT 347
-          <small>Global Talent</small>
-        </div>
-      </a>
-
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="p347.html">P347</a>
-        <a href="#roadmap">Roadmap</a>
-        <a href="#faq">FAQ</a>
-      </div>
-
-      <div class="nav-actions">
-
-        <button
-          class="icon-btn menu-btn"
-          id="menuBtn"
-          aria-label="Menu">
-          ☰
-        </button>
-
-        <a
-          class="btn trade-btn"
-          href="https://lobstr.co/trade/native/P347:GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
-          target="_blank"
-          rel="noopener">
-          Trade P347 ↗
-        </a>
-
-        <a
-          class="btn btn-telegram"
-          href="https://t.me/project_347"
-          target="_blank"
-          rel="noopener">
-          Telegram ↗
-        </a>
-
-      </div>
-
-    </nav>
-
-    <div class="mobile-menu" id="mobileMenu">
-
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="p347.html">P347</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="#faq">FAQ</a>
-
-      <a
-        href="https://lobstr.co/trade/native/P347:GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
-        target="_blank">
-        Trade P347 ↗
-      </a>
-
-      <a
-        href="https://t.me/project_347"
-        target="_blank">
-        Join Telegram ↗
-      </a>
-
-    </div>
-
-  </div>
+<div
+    class="cursorGlow"
+    id="cursorGlow">
 </div>
 
 
-<main>
+
+<!-- =======================================================
+     NAV
+======================================================= -->
+
+<div class="navWrap">
+
+<div class="container">
+
+<nav class="nav">
+
+
+<a
+    class="brand"
+    href="#home">
+
+    <img
+        src="assets/p347.png"
+        alt="PROJECT 347">
+
+    <div class="brandText">
+
+        PROJECT 347
+
+        <small>
+            Global Talent
+        </small>
+
+    </div>
+
+</a>
+
+
+<div class="navLinks">
+
+<a href="#mission">
+Mission
+</a>
+
+<a href="#asset">
+P347
+</a>
+
+<a href="#links">
+Links
+</a>
+
+<a href="#roadmap">
+Roadmap
+</a>
+
+<a href="#faq">
+FAQ
+</a>
+
+</div>
+
+
+<div class="navActions">
+
+
+<a
+    class="btn btnTrade"
+    href="https://lobstr.co/trade/native/P347:GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
+    target="_blank"
+    rel="noopener">
+
+    Trade P347 ↗
+
+</a>
+
+
+<a
+    class="btn btnPrimary"
+    href="https://t.me/project_347"
+    target="_blank"
+    rel="noopener">
+
+    Telegram ↗
+
+</a>
+
+
+</div>
+
+</nav>
+
+</div>
+
+</div>
+
+
+
+<!-- =======================================================
+     HERO
+======================================================= -->
+
+<main id="home">
 
 
 <section class="hero">
 
-  <div class="container hero-grid">
-
-    <div class="reveal visible">
-
-      <div class="eyebrow">
-        <span class="dot-live"></span>
-        Built on Stellar Mainnet
-      </div>
-
-      <h1>
-        THE NEXT
-        <span class="gradient-text">347.</span>
-      </h1>
-
-      <p class="hero-copy">
-        PROJECT 347 connects global talent discovery,
-        athlete development and Australian Football
-        through one focused digital ecosystem.
-      </p>
+<div class="container heroGrid">
 
 
-      <div class="hero-actions">
-
-        <a
-          class="btn btn-primary"
-          href="https://t.me/project_347"
-          target="_blank"
-          rel="noopener">
-          Join the Community ↗
-        </a>
-
-        <a
-          class="btn trade-btn-large"
-          href="https://lobstr.co/trade/native/P347:GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
-          target="_blank"
-          rel="noopener">
-          Trade P347
-        </a>
-
-        <a
-          class="btn"
-          href="p347.html">
-          Explore P347 →
-        </a>
-
-      </div>
+<div class="reveal visible">
 
 
-      <div class="hero-mini">
+<div class="eyebrow">
 
-        <div>
-          <strong>100,000,000</strong>
-          <span>Fixed Supply</span>
-        </div>
+<span class="liveDot"></span>
 
-        <div>
-          <strong>P347</strong>
-          <span>Asset Code</span>
-        </div>
+Built on Stellar Mainnet
 
-        <div>
-          <strong>Mainnet</strong>
-          <span>Stellar Network</span>
-        </div>
-
-        <div>
-          <strong>Locked</strong>
-          <span>Issuer Master Key</span>
-        </div>
-
-      </div>
-
-    </div>
+</div>
 
 
-    <div class="orb-stage reveal">
+<h1>
 
-      <div class="orb-ring r1"></div>
-      <div class="orb-ring r2"></div>
-      <div class="orb-ring r3"></div>
+GLOBAL
+<span class="gradientText">
+TALENT.
+</span>
 
-      <div class="logo-core" id="logoCore">
-        <img
-          src="assets/p347.png"
-          alt="P347">
-      </div>
-
-      <div class="float-chip chip-a">
-        NETWORK <b>MAINNET</b>
-      </div>
-
-      <div class="float-chip chip-b">
-        SUPPLY <b>100M</b>
-      </div>
-
-      <div class="float-chip chip-c">
-        STATUS <b>LIVE</b>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
+</h1>
 
 
+<p class="heroText">
 
-<div class="ticker">
+PROJECT 347 connects global talent discovery,
+athlete development and Australian Football
+through one ambitious digital ecosystem.
 
-  <div class="ticker-track">
+</p>
 
-    <div class="ticker-item">Global Talent</div>
-    <div class="ticker-item">Australian Football</div>
-    <div class="ticker-item">Athlete Development</div>
-    <div class="ticker-item">P347</div>
-    <div class="ticker-item">Stellar Mainnet</div>
-    <div class="ticker-item">Fixed Supply</div>
-    <div class="ticker-item">Trade on LOBSTR</div>
 
-    <div class="ticker-item">Global Talent</div>
-    <div class="ticker-item">Australian Football</div>
-    <div class="ticker-item">Athlete Development</div>
-    <div class="ticker-item">P347</div>
-    <div class="ticker-item">Stellar Mainnet</div>
-    <div class="ticker-item">Fixed Supply</div>
-    <div class="ticker-item">Trade on LOBSTR</div>
+<div class="heroActions">
 
-  </div>
+
+<a
+class="btn btnPrimary"
+href="https://t.me/project_347"
+target="_blank"
+rel="noopener">
+
+Join the Community ↗
+
+</a>
+
+
+<a
+class="btn btnTrade"
+href="https://lobstr.co/trade/native/P347:GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
+target="_blank"
+rel="noopener">
+
+Trade P347
+
+</a>
+
+
+<a
+class="btn"
+href="#asset">
+
+Explore P347 ↓
+
+</a>
+
+
+</div>
+
+
+<div class="heroStats">
+
+
+<div>
+
+<strong>
+100,000,000
+</strong>
+
+<span>
+Fixed Supply
+</span>
+
+</div>
+
+
+<div>
+
+<strong>
+P347
+</strong>
+
+<span>
+Asset Code
+</span>
+
+</div>
+
+
+<div>
+
+<strong>
+Mainnet
+</strong>
+
+<span>
+Stellar Network
+</span>
+
+</div>
+
+
+<div>
+
+<strong>
+Locked
+</strong>
+
+<span>
+Issuer Master Key
+</span>
+
+</div>
+
+
+</div>
+
 
 </div>
 
 
 
+<div class="tokenStage reveal">
+
+
+<div class="ring ring1"></div>
+<div class="ring ring2"></div>
+<div class="ring ring3"></div>
+
+
+<div
+class="tokenCore"
+id="tokenCore">
+
+<img
+src="assets/p347.png"
+alt="P347">
+
+</div>
+
+
+<div class="floatTag tag1">
+
+NETWORK
+<b>MAINNET</b>
+
+</div>
+
+
+<div class="floatTag tag2">
+
+SUPPLY
+<b>100M</b>
+
+</div>
+
+
+<div class="floatTag tag3">
+
+STATUS
+<b>LIVE</b>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     TICKER
+======================================================= -->
+
+
+<div class="ticker">
+
+<div class="tickerTrack">
+
+
+<div class="tickerItem">
+PROJECT 347
+</div>
+
+<div class="tickerItem">
+Global Talent
+</div>
+
+<div class="tickerItem">
+Australian Football
+</div>
+
+<div class="tickerItem">
+Athlete Development
+</div>
+
+<div class="tickerItem">
+P347
+</div>
+
+<div class="tickerItem">
+Stellar Mainnet
+</div>
+
+<div class="tickerItem">
+100M Fixed Supply
+</div>
+
+<div class="tickerItem">
+Trade on LOBSTR
+</div>
+
+
+<div class="tickerItem">
+PROJECT 347
+</div>
+
+<div class="tickerItem">
+Global Talent
+</div>
+
+<div class="tickerItem">
+Australian Football
+</div>
+
+<div class="tickerItem">
+Athlete Development
+</div>
+
+<div class="tickerItem">
+P347
+</div>
+
+<div class="tickerItem">
+Stellar Mainnet
+</div>
+
+<div class="tickerItem">
+100M Fixed Supply
+</div>
+
+<div class="tickerItem">
+Trade on LOBSTR
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =======================================================
+     MISSION
+======================================================= -->
+
+
 <section id="mission">
 
-  <div class="container">
-
-    <div class="section-head reveal">
-
-      <div>
-
-        <div class="section-kicker">
-          01 / The Mission
-        </div>
-
-        <h2 class="section-title">
-          Talent can begin anywhere.
-        </h2>
-
-      </div>
-
-      <p class="section-lead">
-        PROJECT 347 is built around a simple idea:
-        discover wider, develop intentionally and create
-        a stronger pathway into Australian Football.
-      </p>
-
-    </div>
+<div class="container">
 
 
-    <div class="grid-4">
-
-      <article class="feature tilt reveal">
-
-        <div class="num">
-          01 — DISCOVER
-        </div>
-
-        <h3>
-          Global Scouting
-        </h3>
-
-        <p>
-          Broaden the lens for identifying athletic
-          potential beyond traditional recruitment channels.
-        </p>
-
-      </article>
+<div class="sectionTop reveal">
 
 
-      <article class="feature tilt reveal">
+<div>
 
-        <div class="num">
-          02 — DEVELOP
-        </div>
+<div class="kicker">
 
-        <h3>
-          Athlete Pathway
-        </h3>
+01 / THE MISSION
 
-        <p>
-          Create a structured progression from raw
-          potential toward sport-specific development.
-        </p>
+</div>
 
-      </article>
+<h2 class="sectionTitle">
 
+Talent can begin anywhere.
 
-      <article class="feature tilt reveal">
+</h2>
 
-        <div class="num">
-          03 — CONNECT
-        </div>
-
-        <h3>
-          Community
-        </h3>
-
-        <p>
-          Bring athletes, supporters and the wider
-          PROJECT 347 ecosystem into one digital home.
-        </p>
-
-      </article>
+</div>
 
 
-      <article class="feature tilt reveal">
+<div class="sectionDescription">
 
-        <div class="num">
-          04 — BUILD
-        </div>
+PROJECT 347 is designed around a simple idea:
+discover wider, develop intentionally and create
+new pathways into Australian Football.
 
-        <h3>
-          Digital Layer
-        </h3>
+</div>
 
-        <p>
-          Use Stellar infrastructure to provide a transparent
-          and verifiable digital asset layer.
-        </p>
 
-      </article>
+</div>
 
-    </div>
 
-  </div>
+
+<div class="cards">
+
+
+<div class="card tilt reveal">
+
+<div class="cardNumber">
+
+01 — DISCOVER
+
+</div>
+
+<h3>
+
+Global Scouting
+
+</h3>
+
+<p>
+
+A broader approach to identifying athletic
+potential beyond traditional recruitment channels.
+
+</p>
+
+</div>
+
+
+
+<div class="card tilt reveal">
+
+<div class="cardNumber">
+
+02 — EVALUATE
+
+</div>
+
+<h3>
+
+Athletic Potential
+
+</h3>
+
+<p>
+
+Build a clearer picture of physical ability,
+movement, upside and sport-specific potential.
+
+</p>
+
+</div>
+
+
+
+<div class="card tilt reveal">
+
+<div class="cardNumber">
+
+03 — DEVELOP
+
+</div>
+
+<h3>
+
+Athlete Pathway
+
+</h3>
+
+<p>
+
+Create a structured environment that supports
+progression from potential toward opportunity.
+
+</p>
+
+</div>
+
+
+
+<div class="card tilt reveal">
+
+<div class="cardNumber">
+
+04 — CONNECT
+
+</div>
+
+<h3>
+
+Global Community
+
+</h3>
+
+<p>
+
+Connect athletes, supporters and the wider
+PROJECT 347 ecosystem through one digital identity.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
 
 </section>
 
+
+
+<!-- =======================================================
+     BIG MESSAGE
+======================================================= -->
 
 
 <section>
 
-  <div class="container">
+<div class="container">
 
-    <div class="premium-band reveal">
+<div class="featureBand reveal">
 
-      <div class="section-kicker">
-        02 / P347
-      </div>
 
-      <h2 class="section-title">
-        The digital layer of PROJECT 347.
-      </h2>
+<div class="featureContent">
 
-      <p class="section-lead">
-        P347 is the Stellar asset associated with the
-        PROJECT 347 ecosystem.
-      </p>
 
-      <div class="hero-actions">
+<div class="kicker">
 
-        <a
-          class="btn btn-primary"
-          href="https://lobstr.co/trade/native/P347:GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
-          target="_blank">
-          Trade P347 on LOBSTR ↗
-        </a>
+PROJECT 347 / GLOBAL TALENT
 
-        <a
-          class="btn"
-          href="https://stellar.expert/explorer/public/asset/P347-GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
-          target="_blank">
-          StellarExpert ↗
-        </a>
+</div>
 
-        <a
-          class="btn"
-          href="p347.html">
-          P347 Details →
-        </a>
 
-      </div>
+<h2>
 
-    </div>
+One vision.
+One pathway.
+A global field.
 
-  </div>
+</h2>
+
+
+<p>
+
+PROJECT 347 is built to explore talent beyond
+traditional borders and create a stronger digital
+and athletic ecosystem around Australian Football.
+
+</p>
+
+
+<div class="heroActions">
+
+
+<a
+class="btn btnPrimary"
+href="https://t.me/project_347"
+target="_blank">
+
+Join Official Telegram ↗
+
+</a>
+
+
+<a
+class="btn"
+href="#asset">
+
+Discover P347 ↓
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     P347
+======================================================= -->
+
+
+<section id="asset">
+
+<div class="container">
+
+
+<div class="sectionTop reveal">
+
+
+<div>
+
+<div class="kicker">
+
+02 / DIGITAL ASSET
+
+</div>
+
+<h2 class="sectionTitle">
+
+Meet P347.
+
+</h2>
+
+</div>
+
+
+<div class="sectionDescription">
+
+P347 is the Stellar-based digital asset associated
+with the PROJECT 347 ecosystem.
+
+Its issuer, supply and public metadata
+are verifiable on Stellar.
+
+</div>
+
+
+</div>
+
+
+
+<div class="assetShell reveal">
+
+
+
+<div class="assetVisual">
+
+
+<div class="assetCoin">
+
+<img
+src="assets/p347.png"
+alt="P347">
+
+</div>
+
+
+</div>
+
+
+
+<div class="assetInfo">
+
+
+<div class="assetHeader">
+
+
+<div>
+
+<div class="assetName">
+
+PROJECT 347
+
+</div>
+
+<div class="assetSubtitle">
+
+Stellar Classic Asset
+
+</div>
+
+</div>
+
+
+<div class="assetCode">
+
+P347
+
+</div>
+
+
+</div>
+
+
+
+<div class="statsGrid">
+
+
+<div class="statBox">
+
+<span>
+Fixed Supply
+</span>
+
+<strong
+class="counter"
+data-target="100000000">
+
+0
+
+</strong>
+
+</div>
+
+
+
+<div class="statBox">
+
+<span>
+Display Decimals
+</span>
+
+<strong>
+7
+</strong>
+
+</div>
+
+
+
+<div class="statBox">
+
+<span>
+Network
+</span>
+
+<strong>
+Stellar Mainnet
+</strong>
+
+</div>
+
+
+
+<div class="statBox">
+
+<span>
+Issuer
+</span>
+
+<strong>
+Locked
+</strong>
+
+</div>
+
+
+</div>
+
+
+
+<div class="walletBox">
+
+<div class="walletLabel">
+
+Issuer Account
+
+</div>
+
+
+<div class="walletRow">
+
+
+<div class="walletAddress">
+
+GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM
+
+</div>
+
+
+<button
+class="copyButton"
+data-copy="GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM">
+
+COPY
+
+</button>
+
+
+</div>
+
+</div>
+
+
+
+<div class="walletBox">
+
+<div class="walletLabel">
+
+Distribution Account
+
+</div>
+
+
+<div class="walletRow">
+
+
+<div class="walletAddress">
+
+GAYOLVSN4ZCEB4KQZ2YMR5A67NDCKJPPK23G2VZSRGLWAJC62UXZSQSY
+
+</div>
+
+
+<button
+class="copyButton"
+data-copy="GAYOLVSN4ZCEB4KQZ2YMR5A67NDCKJPPK23G2VZSRGLWAJC62UXZSQSY">
+
+COPY
+
+</button>
+
+
+</div>
+
+</div>
+
+
+
+<div class="assetButtons">
+
+
+<a
+class="btn btnPrimary"
+href="https://lobstr.co/trade/native/P347:GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
+target="_blank">
+
+Trade P347 ↗
+
+</a>
+
+
+<a
+class="btn"
+href="https://stellar.expert/explorer/public/asset/P347-GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
+target="_blank">
+
+StellarExpert ↗
+
+</a>
+
+
+<a
+class="btn"
+href="/.well-known/stellar.toml"
+target="_blank">
+
+stellar.toml ↗
+
+</a>
+
+
+<a
+class="btn"
+href="https://t.me/project_347"
+target="_blank">
+
+Telegram ↗
+
+</a>
+
+
+<button
+class="btn"
+id="copyAsset">
+
+Copy Asset ID
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
 
 </section>
 
 
 
-<section>
+<!-- =======================================================
+     OFFICIAL LINKS
+======================================================= -->
 
-  <div class="container">
 
-    <div class="premium-band reveal">
+<section id="links">
 
-      <div class="section-kicker">
-        03 / Community
-      </div>
+<div class="container">
 
-      <h2 class="section-title">
-        One project. One community.
-      </h2>
 
-      <p class="section-lead">
-        Follow PROJECT 347 announcements,
-        ecosystem updates and future development.
-      </p>
+<div class="sectionTop reveal">
 
-      <div class="hero-actions">
 
-        <a
-          class="btn btn-primary"
-          href="https://t.me/project_347"
-          target="_blank">
-          Join Official Telegram ↗
-        </a>
+<div>
 
-        <a
-          class="btn"
-          href="about.html">
-          About PROJECT 347 →
-        </a>
+<div class="kicker">
 
-      </div>
+03 / OFFICIAL LINKS
 
-    </div>
+</div>
 
-  </div>
+<h2 class="sectionTitle">
+
+Everything in one place.
+
+</h2>
+
+</div>
+
+
+<div class="sectionDescription">
+
+Official PROJECT 347 community,
+trading, metadata and Stellar explorer links.
+
+</div>
+
+
+</div>
+
+
+
+<div class="linksGrid reveal">
+
+
+<a
+class="linkCard"
+href="https://t.me/project_347"
+target="_blank">
+
+<span>
+Community
+</span>
+
+<strong>
+Telegram ↗
+</strong>
+
+</a>
+
+
+
+<a
+class="linkCard"
+href="https://lobstr.co/trade/native/P347:GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
+target="_blank">
+
+<span>
+Market
+</span>
+
+<strong>
+Trade P347 ↗
+</strong>
+
+</a>
+
+
+
+<a
+class="linkCard"
+href="https://stellar.expert/explorer/public/asset/P347-GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
+target="_blank">
+
+<span>
+Explorer
+</span>
+
+<strong>
+StellarExpert ↗
+</strong>
+
+</a>
+
+
+
+<a
+class="linkCard"
+href="/.well-known/stellar.toml"
+target="_blank">
+
+<span>
+Metadata
+</span>
+
+<strong>
+stellar.toml ↗
+</strong>
+
+</a>
+
+
+</div>
+
+
+</div>
 
 </section>
 
+
+
+<!-- =======================================================
+     ROADMAP
+======================================================= -->
 
 
 <section id="roadmap">
 
-  <div class="container">
-
-    <div class="section-head reveal">
-
-      <div>
-
-        <div class="section-kicker">
-          04 / Roadmap
-        </div>
-
-        <h2 class="section-title">
-          Built in stages.
-        </h2>
-
-      </div>
-
-      <p class="section-lead">
-        A focused rollout from infrastructure
-        to community, visibility and long-term development.
-      </p>
-
-    </div>
+<div class="container">
 
 
-    <div class="roadmap reveal">
-
-      <div class="phase current">
-
-        <div class="tag">
-          Phase 01
-        </div>
-
-        <div class="phase-status">
-          <span class="dot-live"></span>
-          Live
-        </div>
-
-        <h3>
-          Foundation
-        </h3>
-
-        <p>
-          Domain, visual identity, Stellar setup,
-          P347 issuance and core framework.
-        </p>
-
-      </div>
+<div class="sectionTop reveal">
 
 
-      <div class="phase">
+<div>
 
-        <div class="tag">
-          Phase 02
-        </div>
+<div class="kicker">
 
-        <div class="phase-status">
-          Active
-        </div>
+04 / ROADMAP
 
-        <h3>
-          Community
-        </h3>
+</div>
 
-        <p>
-          Telegram growth, public communication
-          and ecosystem presentation.
-        </p>
+<h2 class="sectionTitle">
 
-      </div>
+Built in stages.
+
+</h2>
+
+</div>
 
 
-      <div class="phase">
+<div class="sectionDescription">
 
-        <div class="tag">
-          Phase 03
-        </div>
+PROJECT 347 is being developed step by step,
+from infrastructure and community to visibility
+and long-term athlete development.
 
-        <div class="phase-status">
-          Next
-        </div>
-
-        <h3>
-          Visibility
-        </h3>
-
-        <p>
-          Broader discoverability throughout
-          the Stellar ecosystem.
-        </p>
-
-      </div>
+</div>
 
 
-      <div class="phase">
+</div>
 
-        <div class="tag">
-          Phase 04
-        </div>
 
-        <div class="phase-status">
-          Future
-        </div>
 
-        <h3>
-          Expansion
-        </h3>
+<div class="roadmap reveal">
 
-        <p>
-          Long-term ecosystem development
-          and deeper athlete pathway initiatives.
-        </p>
 
-      </div>
+<div class="phase phaseCurrent">
 
-    </div>
+<div class="phaseLabel">
 
-  </div>
+PHASE 01 / LIVE
+
+</div>
+
+<h3>
+
+Foundation
+
+</h3>
+
+<p>
+
+Domain, brand identity, Stellar infrastructure,
+P347 issuance and core project framework.
+
+</p>
+
+</div>
+
+
+
+<div class="phase">
+
+<div class="phaseLabel">
+
+PHASE 02 / ACTIVE
+
+</div>
+
+<h3>
+
+Community
+
+</h3>
+
+<p>
+
+Telegram expansion, public communication
+and PROJECT 347 community development.
+
+</p>
+
+</div>
+
+
+
+<div class="phase">
+
+<div class="phaseLabel">
+
+PHASE 03 / NEXT
+
+</div>
+
+<h3>
+
+Visibility
+
+</h3>
+
+<p>
+
+Broader ecosystem visibility,
+public discovery and Stellar integrations.
+
+</p>
+
+</div>
+
+
+
+<div class="phase">
+
+<div class="phaseLabel">
+
+PHASE 04 / FUTURE
+
+</div>
+
+<h3>
+
+Expansion
+
+</h3>
+
+<p>
+
+Long-term athlete development initiatives
+and deeper PROJECT 347 ecosystem integration.
+
+</p>
+
+</div>
+
+
+</div>
+
+
+</div>
 
 </section>
 
+
+
+<!-- =======================================================
+     TELEGRAM
+======================================================= -->
+
+
+<section>
+
+<div class="container">
+
+
+<div class="featureBand reveal">
+
+
+<div class="featureContent">
+
+
+<div class="kicker">
+
+05 / COMMUNITY
+
+</div>
+
+
+<h2>
+
+Follow the evolution
+of PROJECT 347.
+
+</h2>
+
+
+<p>
+
+Join the official PROJECT 347 Telegram community
+for project announcements, P347 updates,
+ecosystem developments and future initiatives.
+
+</p>
+
+
+<div class="heroActions">
+
+
+<a
+class="btn btnPrimary"
+href="https://t.me/project_347"
+target="_blank">
+
+Join Telegram ↗
+
+</a>
+
+
+<a
+class="btn btnTrade"
+href="https://lobstr.co/trade/native/P347:GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
+target="_blank">
+
+Trade P347 ↗
+
+</a>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =======================================================
+     FAQ
+======================================================= -->
 
 
 <section id="faq">
 
-  <div class="container">
-
-    <div class="section-head reveal" style="display:block">
-
-      <div class="section-kicker">
-        05 / FAQ
-      </div>
-
-      <h2 class="section-title">
-        Quick answers.
-      </h2>
-
-    </div>
+<div class="container">
 
 
-    <div class="faq reveal">
+<div class="sectionTop reveal">
 
-      <div class="faq-item">
+<div>
 
-        <button class="faq-q">
-          <span>What is PROJECT 347?</span>
-          <span>+</span>
-        </button>
+<div class="kicker">
 
-        <div class="faq-a">
-          PROJECT 347 is a global talent discovery
-          and athlete development initiative focused
-          on Australian Football.
-        </div>
+06 / FAQ
 
-      </div>
+</div>
 
+<h2 class="sectionTitle">
 
-      <div class="faq-item">
+Quick answers.
 
-        <button class="faq-q">
-          <span>What is P347?</span>
-          <span>+</span>
-        </button>
+</h2>
 
-        <div class="faq-a">
-          P347 is the Stellar-based digital asset
-          associated with the PROJECT 347 ecosystem.
-        </div>
+</div>
 
-      </div>
+</div>
 
 
-      <div class="faq-item">
 
-        <button class="faq-q">
-          <span>What is the total supply?</span>
-          <span>+</span>
-        </button>
-
-        <div class="faq-a">
-          The fixed supply is 100,000,000 P347.
-        </div>
-
-      </div>
+<div class="faq reveal">
 
 
-      <div class="faq-item">
 
-        <button class="faq-q">
-          <span>Where can I trade P347?</span>
-          <span>+</span>
-        </button>
-
-        <div class="faq-a">
-          The P347 / XLM market is available through
-          the LOBSTR Stellar trading interface.
-        </div>
-
-      </div>
+<div class="faqItem">
 
 
-      <div class="faq-item">
+<button class="faqQuestion">
 
-        <button class="faq-q">
-          <span>Where can I follow the project?</span>
-          <span>+</span>
-        </button>
+<span>
 
-        <div class="faq-a">
-          Join the official Telegram community at
-          t.me/project_347.
-        </div>
+What is PROJECT 347?
 
-      </div>
+</span>
 
-    </div>
+<span class="faqPlus">
 
-  </div>
++
+
+</span>
+
+</button>
+
+
+<div class="faqAnswer">
+
+PROJECT 347 is a global talent discovery
+and athlete development initiative focused
+on creating new pathways into Australian Football.
+
+</div>
+
+
+</div>
+
+
+
+<div class="faqItem">
+
+
+<button class="faqQuestion">
+
+<span>
+
+What is P347?
+
+</span>
+
+<span class="faqPlus">
+
++
+
+</span>
+
+</button>
+
+
+<div class="faqAnswer">
+
+P347 is the Stellar-based digital asset
+associated with the PROJECT 347 ecosystem.
+
+</div>
+
+
+</div>
+
+
+
+<div class="faqItem">
+
+
+<button class="faqQuestion">
+
+<span>
+
+What is the total P347 supply?
+
+</span>
+
+<span class="faqPlus">
+
++
+
+</span>
+
+</button>
+
+
+<div class="faqAnswer">
+
+The fixed supply is 100,000,000 P347.
+
+</div>
+
+
+</div>
+
+
+
+<div class="faqItem">
+
+
+<button class="faqQuestion">
+
+<span>
+
+Which blockchain is P347 built on?
+
+</span>
+
+<span class="faqPlus">
+
++
+
+</span>
+
+</button>
+
+
+<div class="faqAnswer">
+
+P347 is a classic Stellar asset issued
+on the Stellar Public Network / Mainnet.
+
+</div>
+
+
+</div>
+
+
+
+<div class="faqItem">
+
+
+<button class="faqQuestion">
+
+<span>
+
+Where can P347 be traded?
+
+</span>
+
+<span class="faqPlus">
+
++
+
+</span>
+
+</button>
+
+
+<div class="faqAnswer">
+
+The P347 / XLM market can be accessed
+through the LOBSTR Stellar trading interface.
+
+</div>
+
+
+</div>
+
+
+
+<div class="faqItem">
+
+
+<button class="faqQuestion">
+
+<span>
+
+Where can I follow PROJECT 347?
+
+</span>
+
+<span class="faqPlus">
+
++
+
+</span>
+
+</button>
+
+
+<div class="faqAnswer">
+
+The official PROJECT 347 Telegram community is:
+
+https://t.me/project_347
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
 
 </section>
+
 
 
 </main>
 
 
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
+
 <footer>
 
-  <div class="container">
 
-    <div class="footer-top">
-
-      <div class="footer-brand">
-
-        <img
-          src="assets/p347.png"
-          alt="PROJECT 347">
-
-        <div>
-
-          <strong>
-            PROJECT 347
-          </strong>
-
-          <span>
-            Global Talent • Athlete Development • P347
-          </span>
-
-        </div>
-
-      </div>
+<div class="container">
 
 
-      <div class="footer-links">
-
-        <a href="index.html">
-          Home
-        </a>
-
-        <a href="about.html">
-          About
-        </a>
-
-        <a href="p347.html">
-          P347
-        </a>
-
-        <a
-          href="https://lobstr.co/trade/native/P347:GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
-          target="_blank">
-          Trade
-        </a>
-
-        <a
-          href="https://stellar.expert/explorer/public/asset/P347-GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
-          target="_blank">
-          StellarExpert
-        </a>
-
-        <a
-          href="/.well-known/stellar.toml"
-          target="_blank">
-          stellar.toml
-        </a>
-
-        <a
-          href="https://t.me/project_347"
-          target="_blank">
-          Telegram
-        </a>
-
-      </div>
-
-    </div>
+<div class="footerTop">
 
 
-    <div class="footer-bottom">
+<div class="footerBrand">
 
-      <div class="disclaimer">
 
-        PROJECT 347 is a digital ecosystem initiative.
-        P347 is a Stellar-based digital asset associated
-        with the PROJECT 347 ecosystem.
+<img
+src="assets/p347.png"
+alt="PROJECT 347">
 
-        This website is for informational purposes only
-        and does not represent a promise of financial return.
 
-      </div>
+<div>
 
-      <div class="copyright">
 
-        ©
-        <span id="year"></span>
-        PROJECT 347.
+<strong>
 
-      </div>
+PROJECT 347
 
-    </div>
+</strong>
 
-  </div>
+
+<span>
+
+Global Talent • Athlete Development • P347
+
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
+<div class="footerLinks">
+
+
+<a href="#home">
+
+Home
+
+</a>
+
+
+<a href="#mission">
+
+Mission
+
+</a>
+
+
+<a href="#asset">
+
+P347
+
+</a>
+
+
+<a
+href="https://lobstr.co/trade/native/P347:GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
+target="_blank">
+
+Trade
+
+</a>
+
+
+<a
+href="https://stellar.expert/explorer/public/asset/P347-GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
+target="_blank">
+
+StellarExpert
+
+</a>
+
+
+<a
+href="/.well-known/stellar.toml"
+target="_blank">
+
+stellar.toml
+
+</a>
+
+
+<a
+href="https://t.me/project_347"
+target="_blank">
+
+Telegram
+
+</a>
+
+
+</div>
+
+
+</div>
+
+
+
+<div class="footerBottom">
+
+
+<div class="disclaimer">
+
+PROJECT 347 is a digital ecosystem initiative.
+
+P347 is a Stellar-based digital asset
+associated with the PROJECT 347 ecosystem.
+
+Information on this website is provided
+for informational purposes only and does not
+represent a promise or guarantee of financial return.
+
+</div>
+
+
+<div>
+
+©
+<span id="year"></span>
+PROJECT 347
+
+</div>
+
+
+</div>
+
+
+</div>
+
 
 </footer>
 
 
-<div class="toast" id="toast">
-  Copied
+
+<div
+class="toast"
+id="toast">
+
+Copied
+
 </div>
 
 
-<script src="app.js"></script>
+
+<script>
+
+
+/* =========================================================
+   YEAR
+========================================================= */
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealObserver =
+new IntersectionObserver(
+
+entries => {
+
+entries.forEach(
+
+entry => {
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("visible");
+
+}
+
+}
+
+);
+
+},
+
+{
+threshold:.12
+}
+
+);
+
+
+document
+.querySelectorAll(".reveal")
+.forEach(
+
+element => {
+
+revealObserver.observe(element);
+
+}
+
+);
+
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+document
+.querySelectorAll(".faqItem")
+.forEach(
+
+item => {
+
+const button =
+item.querySelector(".faqQuestion");
+
+button.addEventListener(
+
+"click",
+
+() => {
+
+item.classList.toggle("open");
+
+}
+
+);
+
+}
+
+);
+
+
+
+/* =========================================================
+   COPY TO CLIPBOARD
+========================================================= */
+
+function showToast(message){
+
+const toast =
+document.getElementById("toast");
+
+toast.textContent =
+message;
+
+toast.classList.add("show");
+
+clearTimeout(
+window.toastTimer
+);
+
+window.toastTimer =
+setTimeout(
+
+() => {
+
+toast.classList.remove("show");
+
+},
+
+1600
+
+);
+
+}
+
+
+
+document
+.querySelectorAll("[data-copy]")
+.forEach(
+
+button => {
+
+button.addEventListener(
+
+"click",
+
+async () => {
+
+try{
+
+await navigator.clipboard.writeText(
+button.dataset.copy
+);
+
+showToast(
+"Copied to clipboard"
+);
+
+}
+
+catch{
+
+showToast(
+"Copy failed"
+);
+
+}
+
+}
+
+);
+
+}
+
+);
+
+
+
+document
+.getElementById("copyAsset")
+.addEventListener(
+
+"click",
+
+async () => {
+
+const asset =
+
+"P347-GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM";
+
+
+try{
+
+await navigator.clipboard.writeText(
+asset
+);
+
+showToast(
+"Asset ID copied"
+);
+
+}
+
+catch{
+
+showToast(
+"Copy failed"
+);
+
+}
+
+}
+
+);
+
+
+
+/* =========================================================
+   COUNTER
+========================================================= */
+
+document
+.querySelectorAll(".counter")
+.forEach(
+
+counter => {
+
+
+const observer =
+new IntersectionObserver(
+
+entries => {
+
+entries.forEach(
+
+entry => {
+
+if(!entry.isIntersecting){
+
+return;
+
+}
+
+
+const target =
+Number(
+counter.dataset.target
+);
+
+
+const start =
+performance.now();
+
+
+const duration =
+1500;
+
+
+function animate(now){
+
+const progress =
+Math.min(
+(now-start)/duration,
+1
+);
+
+
+const value =
+
+Math.floor(
+
+target *
+
+(
+1 -
+Math.pow(
+1-progress,
+3
+)
+)
+
+);
+
+
+counter.textContent =
+value.toLocaleString("en-US");
+
+
+if(progress < 1){
+
+requestAnimationFrame(
+animate
+);
+
+}
+
+}
+
+
+requestAnimationFrame(
+animate
+);
+
+
+observer.unobserve(
+counter
+);
+
+}
+
+);
+
+},
+
+{
+threshold:.45
+}
+
+);
+
+
+observer.observe(
+counter
+);
+
+
+}
+
+);
+
+
+
+/* =========================================================
+   3D TOKEN MOUSE EFFECT
+========================================================= */
+
+const token =
+document.getElementById(
+"tokenCore"
+);
+
+
+document.addEventListener(
+
+"mousemove",
+
+event => {
+
+
+const x =
+
+(
+event.clientX /
+window.innerWidth
+-
+.5
+)
+
+*
+18;
+
+
+const y =
+
+(
+event.clientY /
+window.innerHeight
+-
+.5
+)
+
+*
+-18;
+
+
+token.style.transform =
+
+`rotateY(${x}deg) rotateX(${y}deg)`;
+
+}
+
+);
+
+
+
+/* =========================================================
+   CARD TILT
+========================================================= */
+
+document
+.querySelectorAll(".tilt")
+.forEach(
+
+card => {
+
+
+card.addEventListener(
+
+"mousemove",
+
+event => {
+
+
+const rect =
+card.getBoundingClientRect();
+
+
+const x =
+event.clientX -
+rect.left;
+
+
+const y =
+event.clientY -
+rect.top;
+
+
+const rotateX =
+
+(
+(y / rect.height)
+-
+.5
+)
+
+*
+-8;
+
+
+const rotateY =
+
+(
+(x / rect.width)
+-
+.5
+)
+
+*
+8;
+
+
+card.style.transform =
+
+`
+perspective(850px)
+rotateX(${rotateX}deg)
+rotateY(${rotateY}deg)
+translateY(-4px)
+`;
+
+}
+
+);
+
+
+card.addEventListener(
+
+"mouseleave",
+
+() => {
+
+card.style.transform =
+"";
+
+}
+
+);
+
+
+}
+
+);
+
+
+
+/* =========================================================
+   CURSOR GLOW
+========================================================= */
+
+const glow =
+document.getElementById(
+"cursorGlow"
+);
+
+
+document.addEventListener(
+
+"mousemove",
+
+event => {
+
+
+glow.style.opacity =
+".9";
+
+
+glow.style.left =
+event.clientX + "px";
+
+
+glow.style.top =
+event.clientY + "px";
+
+
+}
+
+);
+
+
+
+/* =========================================================
+   PARTICLE NETWORK
+========================================================= */
+
+const canvas =
+document.getElementById(
+"particles"
+);
+
+
+const ctx =
+canvas.getContext(
+"2d"
+);
+
+
+let particles = [];
+
+
+function resizeCanvas(){
+
+
+canvas.width =
+
+window.innerWidth *
+devicePixelRatio;
+
+
+canvas.height =
+
+window.innerHeight *
+devicePixelRatio;
+
+
+canvas.style.width =
+
+window.innerWidth +
+"px";
+
+
+canvas.style.height =
+
+window.innerHeight +
+"px";
+
+
+ctx.setTransform(
+
+devicePixelRatio,
+0,
+0,
+devicePixelRatio,
+0,
+0
+
+);
+
+
+createParticles();
+
+}
+
+
+
+function createParticles(){
+
+
+const count =
+
+Math.min(
+
+75,
+
+Math.floor(
+window.innerWidth /
+18
+)
+
+);
+
+
+particles =
+
+Array.from(
+
+{
+length:count
+},
+
+() => ({
+
+x:
+Math.random() *
+window.innerWidth,
+
+y:
+Math.random() *
+window.innerHeight,
+
+vx:
+(Math.random()-.5) *
+.22,
+
+vy:
+(Math.random()-.5) *
+.22,
+
+radius:
+Math.random()*2 +
+.3
+
+})
+
+);
+
+}
+
+
+
+function drawParticles(){
+
+
+ctx.clearRect(
+
+0,
+0,
+window.innerWidth,
+window.innerHeight
+
+);
+
+
+for(
+
+let i=0;
+
+i<particles.length;
+
+i++
+
+){
+
+
+const p =
+particles[i];
+
+
+p.x +=
+p.vx;
+
+
+p.y +=
+p.vy;
+
+
+if(
+
+p.x < 0 ||
+
+p.x >
+window.innerWidth
+
+){
+
+p.vx *=
+-1;
+
+}
+
+
+if(
+
+p.y < 0 ||
+
+p.y >
+window.innerHeight
+
+){
+
+p.vy *=
+-1;
+
+}
+
+
+ctx.beginPath();
+
+
+ctx.arc(
+
+p.x,
+
+p.y,
+
+p.radius,
+
+0,
+
+Math.PI*2
+
+);
+
+
+ctx.fillStyle =
+
+"rgba(255,255,255,.22)";
+
+
+ctx.fill();
+
+
+
+for(
+
+let j=i+1;
+
+j<particles.length;
+
+j++
+
+){
+
+
+const q =
+particles[j];
+
+
+const distance =
+
+Math.hypot(
+
+p.x-q.x,
+
+p.y-q.y
+
+);
+
+
+if(distance < 120){
+
+
+ctx.beginPath();
+
+
+ctx.moveTo(
+
+p.x,
+
+p.y
+
+);
+
+
+ctx.lineTo(
+
+q.x,
+
+q.y
+
+);
+
+
+ctx.strokeStyle =
+
+`rgba(
+90,
+243,
+210,
+${(1-distance/120)*.18}
+)`;
+
+
+ctx.lineWidth =
+1;
+
+
+ctx.stroke();
+
+
+}
+
+
+}
+
+
+}
+
+
+requestAnimationFrame(
+drawParticles
+);
+
+}
+
+
+
+resizeCanvas();
+
+drawParticles();
+
+
+window.addEventListener(
+
+"resize",
+
+resizeCanvas
+
+);
+
+
+</script>
+
 
 </body>
 </html>
