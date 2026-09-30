@@ -1,1 +1,18 @@
+VERSION="2.7.0"
 
+NETWORK_PASSPHRASE="Public Global Stellar Network ; September 2015"
+
+ACCOUNTS=[
+  "GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM",
+  "GAYOLVSN4ZCEB4KQZ2YMR5A67NDCKJPPK23G2VZSRGLWAJC62UXZSQSY"
+]
+
+[[CURRENCIES]]
+code="P347"
+issuer="GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
+status="private"
+display_decimals=7
+name="PROJECT 347"
+desc="P347 is the Stellar asset associated with PROJECT 347, a global talent discovery and athlete development initiative focused on Australian Football."
+fixed_number=100000000
+is_asset_anchored=false
