@@ -7,13 +7,19 @@ ACCOUNTS=[
   "GAYOLVSN4ZCEB4KQZ2YMR5A67NDCKJPPK23G2VZSRGLWAJC62UXZSQSY"
 ]
 
+[DOCUMENTATION]
+ORG_NAME="PROJECT 347 / GLOBAL TALENT"
+ORG_URL="https://project347.tech"
+ORG_LOGO="https://project347.tech/assets/p347.png"
+ORG_DESCRIPTION="PROJECT 347 is a global talent discovery and athlete development initiative focused on identifying athletic potential and creating pathways into Australian Football."
+
 [[CURRENCIES]]
 code="P347"
 issuer="GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
 status="live"
 display_decimals=7
 name="PROJECT 347"
-desc="P347 is the Stellar asset associated with PROJECT 347, a global talent discovery and athlete development initiative focused on Australian Football."
+desc="P347 is the Stellar asset of PROJECT 347, a global talent discovery and athlete development ecosystem focused on Australian Football."
 image="https://project347.tech/assets/p347.png"
 fixed_number=100000000
 is_asset_anchored=false
