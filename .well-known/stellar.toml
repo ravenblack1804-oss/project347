@@ -14,5 +14,6 @@ status="private"
 display_decimals=7
 name="PROJECT 347"
 desc="P347 is the Stellar asset associated with PROJECT 347, a global talent discovery and athlete development initiative focused on Australian Football."
+image="https://project347.tech/assets/p347.png"
 fixed_number=100000000
 is_asset_anchored=false
