@@ -3,98 +3,774 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>PROJECT 347 | GLOBAL TALENT</title>
-  <meta name="description" content="PROJECT 347 is a global talent discovery and athlete development initiative focused on Australian Football.">
-  <style>
-    *{box-sizing:border-box}
-    body{margin:0;background:#061526;color:#fff;font-family:Arial,Helvetica,sans-serif;line-height:1.6}
-    .wrap{max-width:1100px;margin:auto;padding:0 24px}
-    header{min-height:100vh;display:flex;align-items:center;text-align:center;background:radial-gradient(circle at top,#173b60 0,#061526 55%,#020b13 100%)}
-    .hero{width:100%}
-    .logo{width:min(420px,80vw);display:block;margin:0 auto 22px}
-    h1{font-size:clamp(38px,7vw,80px);margin:0;letter-spacing:4px}
-    .gold{color:#d9a52c}
-    .tag{font-size:clamp(20px,3vw,32px);margin:12px 0}
-    .statement{font-size:18px;letter-spacing:2px;color:#d9a52c}
-    section{padding:80px 0;border-top:1px solid rgba(255,255,255,.08)}
-    h2{font-size:34px;margin-top:0}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-    .card{padding:28px;border:1px solid rgba(217,165,44,.35);border-radius:16px;background:rgba(255,255,255,.035)}
-    .flow{font-size:clamp(20px,4vw,38px);color:#d9a52c;font-weight:bold;text-align:center}
-    .token{background:#0b2037;border-radius:20px;padding:35px}
-    footer{text-align:center;padding:40px;color:#9aacbc}
-  </style>
+
+  <meta name="theme-color" content="#05060a">
+  <meta name="description" content="PROJECT 347 — global talent discovery, athlete development and digital infrastructure for Australian Football.">
+
+  <meta property="og:title" content="PROJECT 347">
+  <meta property="og:description" content="Global talent. One pathway. Built around Australian Football.">
+  <meta property="og:image" content="https://project347.tech/assets/p347.png">
+  <meta property="og:url" content="https://project347.tech/">
+
+  <title>PROJECT 347 — Global Talent</title>
+
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <header>
-    <div class="hero wrap">
-      <img src="/assets/p347.png" alt="PROJECT 347" class="logo">
-      <h1>PROJECT <span class="gold">347</span></h1>
-      <div class="tag">GLOBAL TALENT</div>
-      <p><strong>Find them before the world does.</strong></p>
-      <p class="statement">WA IS THE HEART. THE WORLD IS THE TALENT POOL.</p>
-    </div>
-  </header>
 
-  <section>
-    <div class="wrap">
-      <h2>The Mission</h2>
-      <p>PROJECT 347 is building a global talent discovery and athlete development pathway focused on identifying athletic potential for Australian Football.</p>
-      <p>Instead of waiting for talent to enter traditional systems, we search for athletes with the physical profile, athletic qualities and competitive mentality to develop into footballers.</p>
-    </div>
-  </section>
+<canvas id="particles"></canvas>
+<div class="cursor-glow"></div>
 
-  <section>
-    <div class="wrap">
-      <h2>The Model</h2>
-      <div class="flow">DISCOVER → EVALUATE → DEVELOP → CREATE PATHWAY</div>
-    </div>
-  </section>
+<div class="nav-wrap">
+  <div class="container">
 
-  <section>
-    <div class="wrap">
-      <h2>Global Talent Discovery</h2>
-      <div class="grid">
-        <div class="card"><h3>Basketball</h3><p>Height, reach, movement and contested athleticism.</p></div>
-        <div class="card"><h3>American Football</h3><p>Power, explosiveness, speed and competitive traits.</p></div>
-        <div class="card"><h3>Gaelic Football</h3><p>Running capacity, kicking skills and game awareness.</p></div>
-        <div class="card"><h3>Athletics</h3><p>Speed, endurance, agility and elite movement profiles.</p></div>
+    <nav class="nav">
+
+      <a class="brand" href="index.html">
+        <img src="assets/p347.png" alt="PROJECT 347 logo">
+
+        <div>
+          PROJECT 347
+          <small>Global Talent</small>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="p347.html">P347</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#faq">FAQ</a>
       </div>
-    </div>
-  </section>
 
-  <section>
-    <div class="wrap">
-      <h2>Priority Profiles</h2>
-      <div class="grid">
-        <div class="card"><h3>Rucks</h3></div>
-        <div class="card"><h3>Key Defenders</h3></div>
-        <div class="card"><h3>Key Position Players</h3></div>
+      <div class="nav-actions">
+
+        <button
+          class="icon-btn menu-btn"
+          id="menuBtn"
+          aria-label="Menu">
+          ☰
+        </button>
+
+        <a
+          class="btn trade-btn"
+          href="https://lobstr.co/trade/native/P347:GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
+          target="_blank"
+          rel="noopener">
+          Trade P347 ↗
+        </a>
+
+        <a
+          class="btn btn-telegram"
+          href="https://t.me/project_347"
+          target="_blank"
+          rel="noopener">
+          Telegram ↗
+        </a>
+
       </div>
-    </div>
-  </section>
 
-  <section>
-    <div class="wrap">
-      <h2>Next Generation</h2>
-      <p>A healthier generation creates a stronger future. PROJECT 347 promotes physical activity, youth development, discipline, competition, community and international connection through sport.</p>
-    </div>
-  </section>
+    </nav>
 
-  <section>
-    <div class="wrap">
-      <div class="token">
-        <h2>P347</h2>
-        <p>P347 is the Stellar asset associated with the PROJECT 347 ecosystem.</p>
-        <p><strong>Asset Code:</strong> P347<br>
-        <strong>Total Supply:</strong> 100,000,000 P347<br>
-        <strong>Network:</strong> Stellar<br>
-        <strong>Supply:</strong> Fixed</p>
-        <p>P347 is intended as a utility component of the PROJECT 347 ecosystem. Utility, holder rights and applicable terms will be defined transparently as the ecosystem develops. No guaranteed financial return or price appreciation is promised.</p>
+    <div class="mobile-menu" id="mobileMenu">
+
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="p347.html">P347</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#faq">FAQ</a>
+
+      <a
+        href="https://lobstr.co/trade/native/P347:GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
+        target="_blank">
+        Trade P347 ↗
+      </a>
+
+      <a
+        href="https://t.me/project_347"
+        target="_blank">
+        Join Telegram ↗
+      </a>
+
+    </div>
+
+  </div>
+</div>
+
+
+<main>
+
+
+<section class="hero">
+
+  <div class="container hero-grid">
+
+    <div class="reveal visible">
+
+      <div class="eyebrow">
+        <span class="dot-live"></span>
+        Built on Stellar Mainnet
       </div>
-    </div>
-  </section>
 
-  <footer>PROJECT 347 | GLOBAL TALENT</footer>
+      <h1>
+        THE NEXT
+        <span class="gradient-text">347.</span>
+      </h1>
+
+      <p class="hero-copy">
+        PROJECT 347 connects global talent discovery,
+        athlete development and Australian Football
+        through one focused digital ecosystem.
+      </p>
+
+
+      <div class="hero-actions">
+
+        <a
+          class="btn btn-primary"
+          href="https://t.me/project_347"
+          target="_blank"
+          rel="noopener">
+          Join the Community ↗
+        </a>
+
+        <a
+          class="btn trade-btn-large"
+          href="https://lobstr.co/trade/native/P347:GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
+          target="_blank"
+          rel="noopener">
+          Trade P347
+        </a>
+
+        <a
+          class="btn"
+          href="p347.html">
+          Explore P347 →
+        </a>
+
+      </div>
+
+
+      <div class="hero-mini">
+
+        <div>
+          <strong>100,000,000</strong>
+          <span>Fixed Supply</span>
+        </div>
+
+        <div>
+          <strong>P347</strong>
+          <span>Asset Code</span>
+        </div>
+
+        <div>
+          <strong>Mainnet</strong>
+          <span>Stellar Network</span>
+        </div>
+
+        <div>
+          <strong>Locked</strong>
+          <span>Issuer Master Key</span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="orb-stage reveal">
+
+      <div class="orb-ring r1"></div>
+      <div class="orb-ring r2"></div>
+      <div class="orb-ring r3"></div>
+
+      <div class="logo-core" id="logoCore">
+        <img
+          src="assets/p347.png"
+          alt="P347">
+      </div>
+
+      <div class="float-chip chip-a">
+        NETWORK <b>MAINNET</b>
+      </div>
+
+      <div class="float-chip chip-b">
+        SUPPLY <b>100M</b>
+      </div>
+
+      <div class="float-chip chip-c">
+        STATUS <b>LIVE</b>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<div class="ticker">
+
+  <div class="ticker-track">
+
+    <div class="ticker-item">Global Talent</div>
+    <div class="ticker-item">Australian Football</div>
+    <div class="ticker-item">Athlete Development</div>
+    <div class="ticker-item">P347</div>
+    <div class="ticker-item">Stellar Mainnet</div>
+    <div class="ticker-item">Fixed Supply</div>
+    <div class="ticker-item">Trade on LOBSTR</div>
+
+    <div class="ticker-item">Global Talent</div>
+    <div class="ticker-item">Australian Football</div>
+    <div class="ticker-item">Athlete Development</div>
+    <div class="ticker-item">P347</div>
+    <div class="ticker-item">Stellar Mainnet</div>
+    <div class="ticker-item">Fixed Supply</div>
+    <div class="ticker-item">Trade on LOBSTR</div>
+
+  </div>
+
+</div>
+
+
+
+<section id="mission">
+
+  <div class="container">
+
+    <div class="section-head reveal">
+
+      <div>
+
+        <div class="section-kicker">
+          01 / The Mission
+        </div>
+
+        <h2 class="section-title">
+          Talent can begin anywhere.
+        </h2>
+
+      </div>
+
+      <p class="section-lead">
+        PROJECT 347 is built around a simple idea:
+        discover wider, develop intentionally and create
+        a stronger pathway into Australian Football.
+      </p>
+
+    </div>
+
+
+    <div class="grid-4">
+
+      <article class="feature tilt reveal">
+
+        <div class="num">
+          01 — DISCOVER
+        </div>
+
+        <h3>
+          Global Scouting
+        </h3>
+
+        <p>
+          Broaden the lens for identifying athletic
+          potential beyond traditional recruitment channels.
+        </p>
+
+      </article>
+
+
+      <article class="feature tilt reveal">
+
+        <div class="num">
+          02 — DEVELOP
+        </div>
+
+        <h3>
+          Athlete Pathway
+        </h3>
+
+        <p>
+          Create a structured progression from raw
+          potential toward sport-specific development.
+        </p>
+
+      </article>
+
+
+      <article class="feature tilt reveal">
+
+        <div class="num">
+          03 — CONNECT
+        </div>
+
+        <h3>
+          Community
+        </h3>
+
+        <p>
+          Bring athletes, supporters and the wider
+          PROJECT 347 ecosystem into one digital home.
+        </p>
+
+      </article>
+
+
+      <article class="feature tilt reveal">
+
+        <div class="num">
+          04 — BUILD
+        </div>
+
+        <h3>
+          Digital Layer
+        </h3>
+
+        <p>
+          Use Stellar infrastructure to provide a transparent
+          and verifiable digital asset layer.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<section>
+
+  <div class="container">
+
+    <div class="premium-band reveal">
+
+      <div class="section-kicker">
+        02 / P347
+      </div>
+
+      <h2 class="section-title">
+        The digital layer of PROJECT 347.
+      </h2>
+
+      <p class="section-lead">
+        P347 is the Stellar asset associated with the
+        PROJECT 347 ecosystem.
+      </p>
+
+      <div class="hero-actions">
+
+        <a
+          class="btn btn-primary"
+          href="https://lobstr.co/trade/native/P347:GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
+          target="_blank">
+          Trade P347 on LOBSTR ↗
+        </a>
+
+        <a
+          class="btn"
+          href="https://stellar.expert/explorer/public/asset/P347-GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
+          target="_blank">
+          StellarExpert ↗
+        </a>
+
+        <a
+          class="btn"
+          href="p347.html">
+          P347 Details →
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<section>
+
+  <div class="container">
+
+    <div class="premium-band reveal">
+
+      <div class="section-kicker">
+        03 / Community
+      </div>
+
+      <h2 class="section-title">
+        One project. One community.
+      </h2>
+
+      <p class="section-lead">
+        Follow PROJECT 347 announcements,
+        ecosystem updates and future development.
+      </p>
+
+      <div class="hero-actions">
+
+        <a
+          class="btn btn-primary"
+          href="https://t.me/project_347"
+          target="_blank">
+          Join Official Telegram ↗
+        </a>
+
+        <a
+          class="btn"
+          href="about.html">
+          About PROJECT 347 →
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<section id="roadmap">
+
+  <div class="container">
+
+    <div class="section-head reveal">
+
+      <div>
+
+        <div class="section-kicker">
+          04 / Roadmap
+        </div>
+
+        <h2 class="section-title">
+          Built in stages.
+        </h2>
+
+      </div>
+
+      <p class="section-lead">
+        A focused rollout from infrastructure
+        to community, visibility and long-term development.
+      </p>
+
+    </div>
+
+
+    <div class="roadmap reveal">
+
+      <div class="phase current">
+
+        <div class="tag">
+          Phase 01
+        </div>
+
+        <div class="phase-status">
+          <span class="dot-live"></span>
+          Live
+        </div>
+
+        <h3>
+          Foundation
+        </h3>
+
+        <p>
+          Domain, visual identity, Stellar setup,
+          P347 issuance and core framework.
+        </p>
+
+      </div>
+
+
+      <div class="phase">
+
+        <div class="tag">
+          Phase 02
+        </div>
+
+        <div class="phase-status">
+          Active
+        </div>
+
+        <h3>
+          Community
+        </h3>
+
+        <p>
+          Telegram growth, public communication
+          and ecosystem presentation.
+        </p>
+
+      </div>
+
+
+      <div class="phase">
+
+        <div class="tag">
+          Phase 03
+        </div>
+
+        <div class="phase-status">
+          Next
+        </div>
+
+        <h3>
+          Visibility
+        </h3>
+
+        <p>
+          Broader discoverability throughout
+          the Stellar ecosystem.
+        </p>
+
+      </div>
+
+
+      <div class="phase">
+
+        <div class="tag">
+          Phase 04
+        </div>
+
+        <div class="phase-status">
+          Future
+        </div>
+
+        <h3>
+          Expansion
+        </h3>
+
+        <p>
+          Long-term ecosystem development
+          and deeper athlete pathway initiatives.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<section id="faq">
+
+  <div class="container">
+
+    <div class="section-head reveal" style="display:block">
+
+      <div class="section-kicker">
+        05 / FAQ
+      </div>
+
+      <h2 class="section-title">
+        Quick answers.
+      </h2>
+
+    </div>
+
+
+    <div class="faq reveal">
+
+      <div class="faq-item">
+
+        <button class="faq-q">
+          <span>What is PROJECT 347?</span>
+          <span>+</span>
+        </button>
+
+        <div class="faq-a">
+          PROJECT 347 is a global talent discovery
+          and athlete development initiative focused
+          on Australian Football.
+        </div>
+
+      </div>
+
+
+      <div class="faq-item">
+
+        <button class="faq-q">
+          <span>What is P347?</span>
+          <span>+</span>
+        </button>
+
+        <div class="faq-a">
+          P347 is the Stellar-based digital asset
+          associated with the PROJECT 347 ecosystem.
+        </div>
+
+      </div>
+
+
+      <div class="faq-item">
+
+        <button class="faq-q">
+          <span>What is the total supply?</span>
+          <span>+</span>
+        </button>
+
+        <div class="faq-a">
+          The fixed supply is 100,000,000 P347.
+        </div>
+
+      </div>
+
+
+      <div class="faq-item">
+
+        <button class="faq-q">
+          <span>Where can I trade P347?</span>
+          <span>+</span>
+        </button>
+
+        <div class="faq-a">
+          The P347 / XLM market is available through
+          the LOBSTR Stellar trading interface.
+        </div>
+
+      </div>
+
+
+      <div class="faq-item">
+
+        <button class="faq-q">
+          <span>Where can I follow the project?</span>
+          <span>+</span>
+        </button>
+
+        <div class="faq-a">
+          Join the official Telegram community at
+          t.me/project_347.
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+  <div class="container">
+
+    <div class="footer-top">
+
+      <div class="footer-brand">
+
+        <img
+          src="assets/p347.png"
+          alt="PROJECT 347">
+
+        <div>
+
+          <strong>
+            PROJECT 347
+          </strong>
+
+          <span>
+            Global Talent • Athlete Development • P347
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="about.html">
+          About
+        </a>
+
+        <a href="p347.html">
+          P347
+        </a>
+
+        <a
+          href="https://lobstr.co/trade/native/P347:GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
+          target="_blank">
+          Trade
+        </a>
+
+        <a
+          href="https://stellar.expert/explorer/public/asset/P347-GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
+          target="_blank">
+          StellarExpert
+        </a>
+
+        <a
+          href="/.well-known/stellar.toml"
+          target="_blank">
+          stellar.toml
+        </a>
+
+        <a
+          href="https://t.me/project_347"
+          target="_blank">
+          Telegram
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <div class="disclaimer">
+
+        PROJECT 347 is a digital ecosystem initiative.
+        P347 is a Stellar-based digital asset associated
+        with the PROJECT 347 ecosystem.
+
+        This website is for informational purposes only
+        and does not represent a promise of financial return.
+
+      </div>
+
+      <div class="copyright">
+
+        ©
+        <span id="year"></span>
+        PROJECT 347.
+
+      </div>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<div class="toast" id="toast">
+  Copied
+</div>
+
+
+<script src="app.js"></script>
+
 </body>
 </html>
