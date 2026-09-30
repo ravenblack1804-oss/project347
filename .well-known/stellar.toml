@@ -10,7 +10,7 @@ ACCOUNTS=[
 [[CURRENCIES]]
 code="P347"
 issuer="GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
-status="private"
+status="live"
 display_decimals=7
 name="PROJECT 347"
 desc="P347 is the Stellar asset associated with PROJECT 347, a global talent discovery and athlete development initiative focused on Australian Football."
