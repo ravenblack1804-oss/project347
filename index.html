@@ -6,11 +6,11 @@
 
 <title>PROJECT 347 | Global Talent</title>
 
-<meta name="description" content="PROJECT 347 — Global talent discovery, athlete development and a digital ecosystem built around Australian Football.">
+<meta name="description" content="PROJECT 347 — global talent discovery, athlete development, crossover scouting and a digital ecosystem built around Australian Football.">
 
 <meta property="og:title" content="PROJECT 347">
-<meta property="og:description" content="Global Talent. One Pathway. PROJECT 347.">
-<meta property="og:image" content="https://project347.tech/assets/p347.png">
+<meta property="og:description" content="Global Talent. Athlete Pathways. Australian Football.">
+<meta property="og:image" content="https://project347.tech/assets/hero-afl.png">
 <meta property="og:url" content="https://project347.tech">
 <meta property="og:type" content="website">
 
@@ -18,46 +18,62 @@
 
 /* =========================================================
    PROJECT 347
-   PREMIUM SINGLE FILE WEBSITE
+   PREMIUM SINGLE-FILE WEBSITE
 ========================================================= */
 
 :root{
-    --bg:#050609;
-    --bg2:#080b11;
+    --bg:#040508;
+    --bg-soft:#080a0f;
+    --bg-soft-2:#0c0f15;
 
     --white:#ffffff;
-    --text:#f5f7fb;
-    --muted:#9ea6b5;
-    --muted2:#666f80;
+    --text:#f7f8fb;
+    --muted:#a6adbb;
+    --muted-2:#6d7687;
 
-    --aqua:#5af3d2;
-    --blue:#59bbff;
-    --purple:#8d78ff;
-    --gold:#e7c977;
+    --aqua:#59f3d1;
+    --blue:#58baff;
+    --purple:#8c73ff;
+    --gold:#e6c36d;
 
     --panel:rgba(255,255,255,.055);
-    --panel2:rgba(255,255,255,.09);
+    --panel-2:rgba(255,255,255,.085);
 
     --border:rgba(255,255,255,.11);
-    --border2:rgba(255,255,255,.19);
+    --border-strong:rgba(255,255,255,.20);
 
-    --max:1240px;
+    --max:1260px;
+
+    --shadow:
+        0 35px 100px
+        rgba(0,0,0,.40);
 }
+
 
 *{
     box-sizing:border-box;
 }
 
+
 html{
     scroll-behavior:smooth;
 }
 
+
 body{
     margin:0;
+
     background:
-        radial-gradient(circle at 10% 5%,rgba(89,187,255,.13),transparent 27%),
-        radial-gradient(circle at 88% 9%,rgba(141,120,255,.12),transparent 27%),
-        radial-gradient(circle at 50% 80%,rgba(90,243,210,.07),transparent 34%),
+        radial-gradient(
+            circle at 14% 6%,
+            rgba(88,186,255,.12),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 84% 10%,
+            rgba(140,115,255,.11),
+            transparent 27%
+        ),
         var(--bg);
 
     color:var(--text);
@@ -74,66 +90,64 @@ body{
 }
 
 
-/* GRID BACKGROUND */
-
-body:before{
+body::before{
     content:"";
 
     position:fixed;
 
     inset:0;
 
-    pointer-events:none;
-
     z-index:0;
 
-    background-image:
+    pointer-events:none;
 
+    background-image:
         linear-gradient(
             rgba(255,255,255,.018) 1px,
             transparent 1px
         ),
-
         linear-gradient(
             90deg,
             rgba(255,255,255,.018) 1px,
             transparent 1px
         );
 
-    background-size:50px 50px;
+    background-size:
+        50px 50px;
 
     mask-image:
         linear-gradient(
             to bottom,
             black,
-            transparent 90%
+            transparent 92%
         );
 }
 
-
-/* =========================================================
-   BASIC
-========================================================= */
 
 a{
     color:inherit;
     text-decoration:none;
 }
 
+
 button{
     font:inherit;
 }
 
+
 img{
+    display:block;
     max-width:100%;
 }
 
+
 ::selection{
-    background:rgba(90,243,210,.25);
+    background:
+        rgba(89,243,209,.25);
 }
 
-.container{
 
+.container{
     width:min(
         calc(100% - 36px),
         var(--max)
@@ -148,85 +162,74 @@ img{
 
 
 /* =========================================================
-   CANVAS PARTICLES
+   BACKGROUND EFFECTS
 ========================================================= */
 
 #particles{
-
     position:fixed;
 
     inset:0;
 
-    width:100%;
+    z-index:0;
 
+    width:100%;
     height:100%;
 
     pointer-events:none;
 
-    z-index:0;
-
-    opacity:.6;
+    opacity:.42;
 }
 
 
-/* =========================================================
-   CURSOR GLOW
-========================================================= */
-
 .cursorGlow{
-
     position:fixed;
 
-    width:400px;
+    z-index:0;
 
-    height:400px;
+    width:420px;
+    height:420px;
 
     border-radius:50%;
 
     pointer-events:none;
 
-    z-index:0;
+    opacity:0;
 
     transform:
         translate(-50%,-50%);
 
-    background:
+    filter:
+        blur(12px);
 
+    background:
         radial-gradient(
             circle,
-            rgba(90,243,210,.10),
-            rgba(89,187,255,.04) 40%,
-            transparent 70%
+            rgba(89,243,209,.09),
+            rgba(88,186,255,.035) 42%,
+            transparent 72%
         );
 
-    filter:blur(12px);
-
-    opacity:0;
-
     transition:
-        opacity .25s;
+        opacity .2s;
 }
 
 
 /* =========================================================
-   NAVBAR
+   NAVIGATION
 ========================================================= */
 
 .navWrap{
-
     position:fixed;
 
-    top:18px;
-
+    top:16px;
     left:0;
-
     right:0;
 
     z-index:100;
 }
 
-.nav{
 
+.nav{
     display:flex;
 
     align-items:center;
@@ -245,19 +248,18 @@ img{
         18px;
 
     background:
-        rgba(5,7,11,.72);
+        rgba(5,6,10,.75);
 
     backdrop-filter:
-        blur(24px);
+        blur(25px);
 
     box-shadow:
         0 16px 55px
-        rgba(0,0,0,.32);
+        rgba(0,0,0,.30);
 }
 
 
 .brand{
-
     display:flex;
 
     align-items:center;
@@ -269,30 +271,31 @@ img{
     letter-spacing:-.03em;
 }
 
+
 .brand img{
-
-    width:40px;
-
-    height:40px;
+    width:41px;
+    height:41px;
 
     object-fit:contain;
 
     filter:
         drop-shadow(
             0 0 18px
-            rgba(90,243,210,.18)
+            rgba(89,243,209,.17)
         );
 }
 
-.brandText small{
 
+.brand small{
     display:block;
 
     margin-top:1px;
 
-    color:var(--muted2);
+    color:var(--muted-2);
 
     font-size:9px;
+
+    font-weight:800;
 
     letter-spacing:.18em;
 
@@ -301,38 +304,38 @@ img{
 
 
 .navLinks{
-
     display:flex;
 
     align-items:center;
 
-    gap:3px;
+    gap:2px;
 }
 
+
 .navLinks a{
-
     padding:
-        10px 12px;
+        10px 11px;
 
-    border-radius:11px;
+    border-radius:
+        11px;
 
-    color:#dce1ea;
+    color:#dce0e8;
 
     font-size:13px;
 
     transition:.2s;
 }
 
+
 .navLinks a:hover{
-
-    background:var(--panel);
-
     color:#fff;
+
+    background:
+        var(--panel);
 }
 
 
 .navActions{
-
     display:flex;
 
     align-items:center;
@@ -346,6 +349,7 @@ img{
 ========================================================= */
 
 .btn{
+    position:relative;
 
     display:inline-flex;
 
@@ -358,10 +362,13 @@ img{
     padding:
         12px 17px;
 
+    overflow:hidden;
+
     border:
         1px solid var(--border);
 
-    border-radius:13px;
+    border-radius:
+        13px;
 
     background:
         var(--panel);
@@ -375,120 +382,113 @@ img{
     cursor:pointer;
 
     transition:
-        .22s;
+        transform .2s,
+        border-color .2s,
+        background .2s,
+        box-shadow .2s;
 }
 
-.btn:hover{
 
+.btn:hover{
     transform:
         translateY(-2px);
 
     border-color:
-        var(--border2);
+        var(--border-strong);
 
     background:
-        var(--panel2);
+        var(--panel-2);
 
     box-shadow:
         0 14px 40px
         rgba(0,0,0,.22);
 }
 
+
 .btnPrimary{
+    color:#04100e;
 
-    color:#03110e;
-
-    border-color:transparent;
+    border-color:
+        transparent;
 
     background:
-
         linear-gradient(
             135deg,
             var(--aqua),
-            #afffe9
+            #baffea
         );
 
     box-shadow:
-
-        0 12px 34px
-        rgba(90,243,210,.17);
+        0 12px 35px
+        rgba(89,243,209,.16);
 }
 
+
 .btnPrimary:hover{
-
     background:
-
         linear-gradient(
             135deg,
-            #78f6dc,
-            #d2fff3
+            #79f5dc,
+            #d1fff3
         );
 }
 
 
 .btnTrade{
-
-    position:relative;
-
-    overflow:hidden;
-
     border-color:
-        rgba(90,243,210,.28);
+        rgba(89,243,209,.27);
 
     background:
-
         linear-gradient(
             135deg,
-            rgba(90,243,210,.13),
-            rgba(89,187,255,.11)
+            rgba(89,243,209,.13),
+            rgba(88,186,255,.12)
         );
 }
 
 
-.btnTrade:before{
-
+.btnTrade::after{
     content:"";
 
     position:absolute;
-
-    width:80px;
-
-    height:220%;
 
     top:-60%;
 
     left:-120px;
 
+    width:80px;
+
+    height:220%;
+
     transform:
         rotate(25deg);
 
     background:
-
         linear-gradient(
             90deg,
             transparent,
-            rgba(255,255,255,.20),
+            rgba(255,255,255,.18),
             transparent
         );
 
     animation:
-        buttonShine
+        buttonSweep
         4.5s
         infinite;
 }
 
-@keyframes buttonShine{
 
+@keyframes buttonSweep{
     0%{
-        left:-130px;
+        left:-120px;
     }
 
     35%{
-        left:125%;
+        left:130%;
     }
 
     100%{
-        left:125%;
+        left:130%;
     }
 }
 
@@ -498,33 +498,94 @@ img{
 ========================================================= */
 
 .hero{
+    min-height:100svh;
 
-    min-height:100vh;
+    position:relative;
 
     display:flex;
 
-    align-items:center;
+    align-items:flex-end;
+
+    overflow:hidden;
 
     padding:
-        130px 0 80px;
+        150px 0 80px;
+
+    background:
+        #05060a;
 }
 
-.heroGrid{
 
-    display:grid;
+.heroBackground{
+    position:absolute;
 
-    grid-template-columns:
-        1.15fr
-        .85fr;
+    inset:0;
 
-    gap:60px;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3,4,7,.97) 0%,
+            rgba(3,4,7,.80) 35%,
+            rgba(3,4,7,.35) 69%,
+            rgba(3,4,7,.14) 100%
+        ),
+        linear-gradient(
+            0deg,
+            rgba(4,5,8,.96) 0%,
+            rgba(4,5,8,.15) 42%,
+            rgba(4,5,8,.18) 100%
+        ),
+        url("assets/hero-afl.png");
 
-    align-items:center;
+    background-size:
+        cover;
+
+    background-position:
+        center;
+
+    transform:
+        scale(1.025);
+
+    transition:
+        transform 8s ease;
+}
+
+
+.hero:hover
+.heroBackground{
+    transform:
+        scale(1.06);
+}
+
+
+.heroBackground::after{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at 78% 40%,
+            transparent 0%,
+            rgba(4,5,8,.10) 42%,
+            rgba(4,5,8,.62) 100%
+        );
+}
+
+
+.heroContent{
+    position:relative;
+
+    z-index:3;
+
+    max-width:
+        790px;
 }
 
 
 .eyebrow{
-
     display:inline-flex;
 
     align-items:center;
@@ -541,10 +602,13 @@ img{
         999px;
 
     background:
-        rgba(255,255,255,.035);
+        rgba(4,5,8,.42);
+
+    backdrop-filter:
+        blur(12px);
 
     color:
-        #d4d8e0;
+        #d6dae2;
 
     font-size:
         11px;
@@ -561,9 +625,7 @@ img{
 
 
 .liveDot{
-
     width:7px;
-
     height:7px;
 
     border-radius:50%;
@@ -572,28 +634,23 @@ img{
         var(--aqua);
 
     box-shadow:
-
         0 0 0 6px
-        rgba(90,243,210,.08),
-
+        rgba(89,243,209,.08),
         0 0 22px
         var(--aqua);
 
     animation:
         pulseDot
-        2.1s
+        2.2s
         infinite;
 }
 
+
 @keyframes pulseDot{
-
     50%{
-
         box-shadow:
-
             0 0 0 11px
-            rgba(90,243,210,0),
-
+            rgba(89,243,209,0),
             0 0 27px
             var(--aqua);
     }
@@ -601,42 +658,46 @@ img{
 
 
 .hero h1{
-
     margin:
-        24px 0;
+        25px 0 24px;
+
+    max-width:
+        900px;
 
     font-size:
         clamp(
             62px,
-            8.7vw,
-            122px
+            9vw,
+            128px
         );
 
     line-height:
-        .86;
+        .84;
 
     letter-spacing:
         -.075em;
 
     font-weight:
         950;
+
+    text-shadow:
+        0 25px 70px
+        rgba(0,0,0,.55);
 }
 
 
 .gradientText{
-
     display:block;
 
     color:transparent;
 
     background:
-
         linear-gradient(
             100deg,
-            #fff 5%,
+            #fff 4%,
             var(--aqua) 43%,
-            var(--blue) 67%,
-            #ded7ff 93%
+            var(--blue) 70%,
+            #e2dcff 94%
         );
 
     background-clip:text;
@@ -646,12 +707,11 @@ img{
 
 
 .heroText{
-
     max-width:
         690px;
 
     color:
-        var(--muted);
+        #bec4cf;
 
     font-size:
         clamp(
@@ -662,11 +722,14 @@ img{
 
     line-height:
         1.7;
+
+    text-shadow:
+        0 10px 30px
+        rgba(0,0,0,.8);
 }
 
 
 .heroActions{
-
     display:flex;
 
     flex-wrap:wrap;
@@ -678,307 +741,43 @@ img{
 
 
 .heroStats{
-
     display:flex;
 
     flex-wrap:wrap;
 
-    gap:30px;
+    gap:32px;
 
-    padding-top:25px;
+    margin-top:42px;
 
-    margin-top:40px;
+    padding-top:26px;
 
     border-top:
-        1px solid var(--border);
+        1px solid
+        rgba(255,255,255,.12);
 }
+
 
 .heroStats strong{
-
     display:block;
 
-    font-size:
-        17px;
+    font-size:17px;
+
+    color:#fff;
 }
+
 
 .heroStats span{
-
     display:block;
 
-    margin-top:
-        3px;
+    margin-top:3px;
 
-    color:
-        var(--muted2);
+    color:#8f98a8;
 
-    font-size:
-        10px;
+    font-size:10px;
 
-    text-transform:
-        uppercase;
+    text-transform:uppercase;
 
-    letter-spacing:
-        .10em;
-}
-
-
-/* =========================================================
-   HERO TOKEN
-========================================================= */
-
-.tokenStage{
-
-    min-height:
-        590px;
-
-    position:relative;
-
-    display:grid;
-
-    place-items:center;
-
-    perspective:
-        1100px;
-}
-
-.ring{
-
-    position:absolute;
-
-    border-radius:50%;
-
-    border:
-        1px solid
-        rgba(255,255,255,.11);
-
-    animation:
-        rotateRing
-        20s
-        linear
-        infinite;
-}
-
-.ring1{
-
-    width:480px;
-
-    height:480px;
-}
-
-.ring2{
-
-    width:385px;
-
-    height:385px;
-
-    border-style:
-        dashed;
-
-    opacity:.7;
-
-    animation-duration:
-        14s;
-
-    animation-direction:
-        reverse;
-}
-
-.ring3{
-
-    width:550px;
-
-    height:250px;
-
-    transform:
-        rotateX(68deg);
-
-    animation-duration:
-        24s;
-}
-
-
-@keyframes rotateRing{
-
-    to{
-        rotate:360deg;
-    }
-}
-
-
-.tokenCore{
-
-    width:
-        min(64vw,320px);
-
-    aspect-ratio:
-        1;
-
-    display:grid;
-
-    place-items:center;
-
-    position:relative;
-
-    z-index:2;
-
-    border-radius:50%;
-
-    overflow:hidden;
-
-    background:
-
-        radial-gradient(
-            circle at 38% 28%,
-            rgba(255,255,255,.12),
-            rgba(255,255,255,.025) 40%,
-            rgba(0,0,0,.38) 75%
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.16);
-
-    box-shadow:
-
-        inset 0 0 70px
-        rgba(90,243,210,.04),
-
-        0 38px 110px
-        rgba(0,0,0,.50),
-
-        0 0 90px
-        rgba(89,187,255,.08);
-
-    transition:
-        transform .12s ease-out;
-
-    transform-style:
-        preserve-3d;
-}
-
-
-.tokenCore:before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:-35%;
-
-    background:
-
-        conic-gradient(
-            from 30deg,
-            transparent,
-            rgba(90,243,210,.11),
-            transparent 30%,
-            rgba(141,120,255,.10),
-            transparent 65%
-        );
-
-    animation:
-        rotateRing
-        11s
-        linear
-        infinite;
-}
-
-
-.tokenCore img{
-
-    width:75%;
-
-    height:75%;
-
-    object-fit:contain;
-
-    position:relative;
-
-    z-index:3;
-
-    filter:
-
-        drop-shadow(
-            0 15px 35px
-            rgba(0,0,0,.45)
-        );
-}
-
-
-.floatTag{
-
-    position:absolute;
-
-    padding:
-        10px 13px;
-
-    border-radius:
-        13px;
-
-    border:
-        1px solid var(--border);
-
-    background:
-        rgba(8,10,15,.77);
-
-    backdrop-filter:
-        blur(15px);
-
-    color:#dfe2e9;
-
-    font-size:
-        11px;
-
-    box-shadow:
-        0 15px 45px
-        rgba(0,0,0,.25);
-
-    animation:
-        floatTag
-        5s ease-in-out
-        infinite;
-}
-
-.floatTag b{
-
-    color:
-        var(--aqua);
-}
-
-.tag1{
-
-    left:0;
-
-    top:19%;
-}
-
-.tag2{
-
-    right:0;
-
-    top:33%;
-
-    animation-delay:
-        -1.4s;
-}
-
-.tag3{
-
-    left:8%;
-
-    bottom:16%;
-
-    animation-delay:
-        -3s;
-}
-
-@keyframes floatTag{
-
-    50%{
-
-        transform:
-            translateY(-10px);
-    }
+    letter-spacing:.10em;
 }
 
 
@@ -987,10 +786,9 @@ img{
 ========================================================= */
 
 .ticker{
-
     position:relative;
 
-    z-index:2;
+    z-index:3;
 
     overflow:hidden;
 
@@ -1004,20 +802,21 @@ img{
         rgba(255,255,255,.018);
 }
 
-.tickerTrack{
 
+.tickerTrack{
     display:flex;
 
     width:max-content;
 
     animation:
         tickerMove
-        35s linear
+        34s
+        linear
         infinite;
 }
 
-.tickerItem{
 
+.tickerItem{
     display:flex;
 
     align-items:center;
@@ -1025,35 +824,29 @@ img{
     gap:20px;
 
     padding:
-        15px 30px;
+        15px 29px;
 
     color:#abb2c0;
 
-    font-size:
-        11px;
+    font-size:11px;
 
-    text-transform:
-        uppercase;
+    text-transform:uppercase;
 
-    letter-spacing:
-        .16em;
+    letter-spacing:.16em;
 }
 
-.tickerItem:after{
 
+.tickerItem::after{
     content:"◆";
 
-    color:
-        var(--aqua);
+    color:var(--aqua);
 
-    font-size:
-        7px;
+    font-size:7px;
 }
 
+
 @keyframes tickerMove{
-
     to{
-
         transform:
             translateX(-50%);
     }
@@ -1061,61 +854,47 @@ img{
 
 
 /* =========================================================
-   SECTIONS
+   COMMON SECTIONS
 ========================================================= */
 
 section{
-
     padding:
-        110px 0;
+        112px 0;
 }
 
 
-.sectionTop{
-
+.sectionHead{
     display:flex;
 
-    justify-content:
-        space-between;
+    align-items:flex-end;
 
-    align-items:
-        flex-end;
+    justify-content:space-between;
 
     gap:40px;
 
-    margin-bottom:
-        48px;
+    margin-bottom:48px;
 }
 
 
 .kicker{
+    margin-bottom:14px;
 
-    margin-bottom:
-        14px;
+    color:var(--aqua);
 
-    color:
-        var(--aqua);
+    font-size:11px;
 
-    font-size:
-        11px;
+    font-weight:850;
 
-    font-weight:
-        850;
+    text-transform:uppercase;
 
-    text-transform:
-        uppercase;
-
-    letter-spacing:
-        .17em;
+    letter-spacing:.17em;
 }
 
 
 .sectionTitle{
-
     margin:0;
 
-    max-width:
-        850px;
+    max-width:880px;
 
     font-size:
         clamp(
@@ -1124,8 +903,7 @@ section{
             70px
         );
 
-    line-height:
-        1;
+    line-height:1;
 
     letter-spacing:
         -.055em;
@@ -1133,173 +911,137 @@ section{
 
 
 .sectionDescription{
+    max-width:690px;
 
-    max-width:
-        690px;
+    color:var(--muted);
 
-    color:
-        var(--muted);
+    font-size:17px;
 
-    font-size:
-        17px;
-
-    line-height:
-        1.7;
+    line-height:1.72;
 }
 
 
 /* =========================================================
-   CARDS
+   MISSION CARDS
 ========================================================= */
 
 .cards{
-
     display:grid;
 
     grid-template-columns:
         repeat(4,1fr);
 
-    gap:
-        14px;
+    gap:14px;
 }
 
 
 .card{
-
-    min-height:
-        285px;
+    min-height:280px;
 
     position:relative;
 
     overflow:hidden;
 
-    padding:
-        24px;
-
-    border-radius:
-        26px;
+    padding:24px;
 
     border:
         1px solid var(--border);
 
-    background:
+    border-radius:
+        26px;
 
+    background:
         linear-gradient(
             180deg,
-            rgba(255,255,255,.06),
-            rgba(255,255,255,.025)
+            rgba(255,255,255,.058),
+            rgba(255,255,255,.022)
         );
 
     box-shadow:
         0 30px 90px
         rgba(0,0,0,.30);
 
-    transition:
-        .25s;
+    transition:.25s;
 }
+
 
 .card:hover{
-
     border-color:
-        rgba(90,243,210,.30);
+        rgba(89,243,209,.30);
 }
 
-.card:after{
 
+.card::after{
     content:"";
 
     position:absolute;
 
-    width:
-        170px;
+    top:-45px;
+    right:-45px;
 
-    height:
-        170px;
+    width:170px;
+    height:170px;
 
-    right:
-        -45px;
+    border-radius:50%;
 
-    top:
-        -45px;
-
-    border-radius:
-        50%;
-
-    opacity:
-        0;
+    opacity:0;
 
     background:
-
         radial-gradient(
             circle,
-            rgba(90,243,210,.14),
+            rgba(89,243,209,.13),
             transparent 70%
         );
 
-    transition:
-        .3s;
+    transition:.3s;
 }
 
-.card:hover:after{
 
-    opacity:
-        1;
+.card:hover::after{
+    opacity:1;
 }
 
 
 .cardNumber{
+    color:var(--muted-2);
 
-    color:
-        var(--muted2);
+    font-size:11px;
 
-    font-size:
-        11px;
-
-    letter-spacing:
-        .12em;
+    letter-spacing:.12em;
 }
 
 
 .card h3{
-
     margin:
-        75px 0 10px;
+        73px 0 11px;
 
-    font-size:
-        24px;
+    font-size:24px;
 
-    letter-spacing:
-        -.035em;
+    letter-spacing:-.035em;
 }
 
 
 .card p{
-
     margin:0;
 
-    color:
-        var(--muted);
+    color:var(--muted);
 
-    font-size:
-        13px;
+    font-size:13px;
 
-    line-height:
-        1.7;
+    line-height:1.7;
 }
 
 
 /* =========================================================
-   PROJECT MESSAGE
+   SPORT CORE / IMAGE FEATURE
 ========================================================= */
 
-.featureBand{
-
+.fullImageFeature{
     position:relative;
 
-    overflow:hidden;
+    min-height:720px;
 
-    padding:
-        60px;
+    overflow:hidden;
 
     border:
         1px solid var(--border);
@@ -1307,146 +1049,382 @@ section{
     border-radius:
         34px;
 
-    background:
-
-        radial-gradient(
-            circle at 83% 20%,
-            rgba(89,187,255,.13),
-            transparent 25%
-        ),
-
-        radial-gradient(
-            circle at 18% 78%,
-            rgba(141,120,255,.13),
-            transparent 25%
-        ),
-
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.06),
-            rgba(255,255,255,.02)
-        );
-
     box-shadow:
-
-        0 38px 120px
-        rgba(0,0,0,.36);
+        var(--shadow);
 }
 
-.featureBand:before{
 
+.fullImageFeature img{
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:
+        transform 1.1s ease;
+}
+
+
+.fullImageFeature:hover img{
+    transform:
+        scale(1.035);
+}
+
+
+.fullImageFeature::after{
     content:"";
 
     position:absolute;
 
     inset:0;
 
-    opacity:
-        .33;
-
-    background-image:
-
-        radial-gradient(
-            rgba(255,255,255,.17) 1px,
-            transparent 1px
-        );
-
-    background-size:
-        22px 22px;
-
-    mask-image:
-
+    background:
         linear-gradient(
             90deg,
-            transparent,
-            black,
-            transparent
+            rgba(3,4,7,.92) 0%,
+            rgba(3,4,7,.68) 36%,
+            rgba(3,4,7,.15) 72%
+        ),
+        linear-gradient(
+            0deg,
+            rgba(3,4,7,.88),
+            transparent 55%
         );
 }
 
-.featureContent{
 
-    position:relative;
+.fullImageContent{
+    position:absolute;
 
-    z-index:2;
+    left:50px;
+    bottom:48px;
 
-    max-width:
-        850px;
+    z-index:3;
+
+    max-width:680px;
 }
 
-.featureBand h2{
 
-    margin:
-        0;
+.fullImageContent h2{
+    margin:0;
 
     font-size:
         clamp(
-            43px,
+            44px,
             6vw,
             78px
         );
 
-    line-height:
-        .96;
+    line-height:.95;
 
-    letter-spacing:
-        -.06em;
+    letter-spacing:-.06em;
 }
 
-.featureBand p{
 
-    max-width:
-        680px;
+.fullImageContent p{
+    max-width:650px;
 
-    margin-top:
-        22px;
+    color:#c1c6d0;
 
-    color:
-        var(--muted);
+    font-size:16px;
 
-    font-size:
-        16px;
-
-    line-height:
-        1.75;
+    line-height:1.75;
 }
 
 
 /* =========================================================
-   P347 ASSET SECTION
+   CROSSOVER
 ========================================================= */
 
-.assetShell{
-
+.crossoverGrid{
     display:grid;
 
     grid-template-columns:
-        .9fr
-        1.1fr;
+        1fr 1fr;
 
-    gap:
-        14px;
+    gap:15px;
+}
 
-    padding:
-        14px;
 
-    border-radius:
-        34px;
+.crossoverCard{
+    position:relative;
+
+    min-height:610px;
+
+    overflow:hidden;
 
     border:
         1px solid var(--border);
 
-    background:
+    border-radius:
+        30px;
 
+    background:#080a0f;
+
+    box-shadow:
+        var(--shadow);
+
+    transition:
+        transform .28s,
+        border-color .28s;
+}
+
+
+.crossoverCard:hover{
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(89,243,209,.27);
+}
+
+
+.crossoverCard img{
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:
+        transform .8s ease;
+}
+
+
+.crossoverCard:hover img{
+    transform:
+        scale(1.045);
+}
+
+
+.crossoverCard::after{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            0deg,
+            rgba(3,4,7,.97) 0%,
+            rgba(3,4,7,.70) 30%,
+            rgba(3,4,7,.10) 72%
+        );
+}
+
+
+.crossoverContent{
+    position:absolute;
+
+    left:28px;
+    right:28px;
+    bottom:28px;
+
+    z-index:3;
+}
+
+
+.crossoverTag{
+    display:inline-flex;
+
+    padding:
+        7px 9px;
+
+    margin-bottom:13px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.13);
+
+    border-radius:999px;
+
+    background:
+        rgba(5,6,10,.55);
+
+    backdrop-filter:
+        blur(10px);
+
+    color:#d6dae1;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:.11em;
+
+    text-transform:uppercase;
+}
+
+
+.crossoverContent h3{
+    margin:
+        0 0 10px;
+
+    font-size:
+        clamp(
+            29px,
+            3vw,
+            42px
+        );
+
+    letter-spacing:-.045em;
+}
+
+
+.crossoverContent p{
+    margin:0;
+
+    max-width:530px;
+
+    color:#aeb5c2;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   MULTISPORT
+========================================================= */
+
+.multisport{
+    position:relative;
+
+    min-height:720px;
+
+    overflow:hidden;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        34px;
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+.multisport img{
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:
+        transform 1s ease;
+}
+
+
+.multisport:hover img{
+    transform:
+        scale(1.035);
+}
+
+
+.multisport::after{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3,4,7,.92),
+            rgba(3,4,7,.48) 45%,
+            rgba(3,4,7,.13)
+        ),
+        linear-gradient(
+            0deg,
+            rgba(3,4,7,.92),
+            transparent 55%
+        );
+}
+
+
+.multisportContent{
+    position:absolute;
+
+    left:50px;
+    bottom:48px;
+
+    z-index:3;
+
+    max-width:720px;
+}
+
+
+.multisportContent h2{
+    margin:0;
+
+    font-size:
+        clamp(
+            44px,
+            6vw,
+            76px
+        );
+
+    line-height:.96;
+
+    letter-spacing:-.06em;
+}
+
+
+.multisportContent p{
+    max-width:680px;
+
+    color:#bec4cf;
+
+    font-size:16px;
+
+    line-height:1.75;
+}
+
+
+/* =========================================================
+   P347 ASSET
+========================================================= */
+
+.assetShell{
+    display:grid;
+
+    grid-template-columns:
+        .88fr 1.12fr;
+
+    gap:14px;
+
+    padding:14px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        34px;
+
+    background:
         linear-gradient(
             135deg,
-            rgba(90,243,210,.05),
-            rgba(141,120,255,.035),
-            rgba(255,255,255,.02)
+            rgba(89,243,209,.05),
+            rgba(140,115,255,.035),
+            rgba(255,255,255,.018)
         );
 
     box-shadow:
-
         0 40px 130px
         rgba(0,0,0,.37);
 }
@@ -1454,7 +1432,6 @@ section{
 
 .assetVisual,
 .assetInfo{
-
     border:
         1px solid var(--border);
 
@@ -1462,145 +1439,124 @@ section{
         24px;
 
     background:
-        rgba(5,6,10,.70);
+        rgba(5,6,10,.72);
 }
 
 
 .assetVisual{
+    position:relative;
 
-    min-height:
-        520px;
+    min-height:520px;
 
     display:grid;
 
     place-items:center;
 
-    position:relative;
-
     overflow:hidden;
 }
 
-.assetVisual:before{
 
+.assetVisual::before{
     content:"";
 
     position:absolute;
 
-    width:
-        500px;
-
-    height:
-        500px;
-
-    border-radius:
-        50%;
+    width:500px;
+    height:500px;
 
     border:
         1px solid
-        rgba(90,243,210,.12);
+        rgba(89,243,209,.12);
+
+    border-radius:50%;
 
     animation:
-        rotateRing
-        28s linear
+        ringRotate
+        28s
+        linear
         infinite;
 }
 
-.assetVisual:after{
 
+.assetVisual::after{
     content:"";
 
     position:absolute;
 
-    width:
-        350px;
-
-    height:
-        350px;
-
-    border-radius:
-        50%;
+    width:350px;
+    height:350px;
 
     border:
         1px dashed
         rgba(255,255,255,.13);
 
+    border-radius:50%;
+
     animation:
-        rotateRing
-        18s linear
+        ringRotate
+        18s
+        linear
         infinite reverse;
 }
 
 
+@keyframes ringRotate{
+    to{
+        rotate:360deg;
+    }
+}
+
+
 .assetCoin{
-
-    width:
-        215px;
-
-    height:
-        215px;
-
     position:relative;
 
     z-index:3;
+
+    width:215px;
+    height:215px;
 
     display:grid;
 
     place-items:center;
 
-    border-radius:
-        50%;
-
     border:
         1px solid
         rgba(255,255,255,.15);
+
+    border-radius:50%;
 
     background:
         rgba(255,255,255,.04);
 
     box-shadow:
-
-        0 35px 70px
-        rgba(0,0,0,.42),
-
-        0 0 85px
-        rgba(90,243,210,.08);
+        0 35px 70px rgba(0,0,0,.42),
+        0 0 85px rgba(89,243,209,.08);
 }
 
+
 .assetCoin img{
+    width:78%;
+    height:78%;
 
-    width:
-        78%;
-
-    height:
-        78%;
-
-    object-fit:
-        contain;
+    object-fit:contain;
 }
 
 
 .assetInfo{
-
-    padding:
-        28px;
+    padding:28px;
 }
 
 
 .assetHeader{
-
     display:flex;
 
-    align-items:
-        flex-start;
+    align-items:flex-start;
 
-    justify-content:
-        space-between;
+    justify-content:space-between;
 
-    gap:
-        20px;
+    gap:20px;
 
-    padding-bottom:
-        22px;
+    padding-bottom:22px;
 
     border-bottom:
         1px solid var(--border);
@@ -1608,66 +1564,52 @@ section{
 
 
 .assetName{
+    font-size:36px;
 
-    font-size:
-        36px;
+    font-weight:900;
 
-    font-weight:
-        900;
-
-    letter-spacing:
-        -.045em;
+    letter-spacing:-.045em;
 }
 
 
 .assetSubtitle{
+    margin-top:5px;
 
-    margin-top:
-        5px;
+    color:var(--muted);
 
-    color:
-        var(--muted);
-
-    font-size:
-        13px;
+    font-size:13px;
 }
 
 
 .assetCode{
-
     padding:
         8px 11px;
+
+    border:
+        1px solid
+        rgba(89,243,209,.18);
 
     border-radius:
         10px;
 
-    border:
-        1px solid
-        rgba(90,243,210,.18);
-
     background:
-        rgba(90,243,210,.09);
+        rgba(89,243,209,.09);
 
-    color:
-        var(--aqua);
+    color:var(--aqua);
 
-    font-size:
-        12px;
+    font-size:12px;
 
-    font-weight:
-        850;
+    font-weight:850;
 }
 
 
 .statsGrid{
-
     display:grid;
 
     grid-template-columns:
         repeat(2,1fr);
 
-    gap:
-        10px;
+    gap:10px;
 
     margin:
         20px 0;
@@ -1675,9 +1617,7 @@ section{
 
 
 .statBox{
-
-    padding:
-        17px;
+    padding:17px;
 
     border:
         1px solid var(--border);
@@ -1691,43 +1631,31 @@ section{
 
 
 .statBox span{
+    color:var(--muted-2);
 
-    color:
-        var(--muted2);
+    font-size:10px;
 
-    font-size:
-        10px;
+    text-transform:uppercase;
 
-    text-transform:
-        uppercase;
-
-    letter-spacing:
-        .11em;
+    letter-spacing:.11em;
 }
 
 
 .statBox strong{
-
     display:block;
 
-    margin-top:
-        8px;
+    margin-top:8px;
 
-    font-size:
-        21px;
+    font-size:21px;
 
-    letter-spacing:
-        -.03em;
+    letter-spacing:-.03em;
 }
 
 
 .walletBox{
+    padding:15px;
 
-    padding:
-        15px;
-
-    margin-top:
-        10px;
+    margin-top:10px;
 
     border:
         1px solid var(--border);
@@ -1741,124 +1669,102 @@ section{
 
 
 .walletLabel{
+    margin-bottom:9px;
 
-    margin-bottom:
-        9px;
+    color:var(--muted-2);
 
-    color:
-        var(--muted2);
+    font-size:10px;
 
-    font-size:
-        10px;
+    text-transform:uppercase;
 
-    text-transform:
-        uppercase;
-
-    letter-spacing:
-        .12em;
+    letter-spacing:.12em;
 }
 
 
 .walletRow{
-
     display:flex;
 
     align-items:center;
 
-    gap:
-        10px;
+    gap:10px;
 }
 
 
 .walletAddress{
-
     flex:1;
 
     overflow:hidden;
 
-    white-space:
-        nowrap;
+    color:#d0d5df;
 
-    text-overflow:
-        ellipsis;
-
-    color:#d1d5de;
-
-    font-size:
-        11px;
+    font-size:11px;
 
     font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
         monospace;
+
+    text-overflow:ellipsis;
+
+    white-space:nowrap;
 }
 
 
 .copyButton{
-
     padding:
         7px 9px;
-
-    border-radius:
-        9px;
 
     border:
         1px solid var(--border);
 
+    border-radius:
+        9px;
+
     background:
         var(--panel);
 
-    color:
-        #fff;
+    color:#fff;
 
-    cursor:
-        pointer;
+    cursor:pointer;
 
-    font-size:
-        10px;
+    font-size:10px;
 }
 
 
 .assetButtons{
-
     display:flex;
 
-    flex-wrap:
-        wrap;
+    flex-wrap:wrap;
 
-    gap:
-        8px;
+    gap:8px;
 
-    margin-top:
-        19px;
+    margin-top:19px;
 }
 
 
 /* =========================================================
-   OFFICIAL LINKS
+   LINKS
 ========================================================= */
 
 .linksGrid{
-
     display:grid;
 
     grid-template-columns:
         repeat(4,1fr);
 
-    gap:
-        12px;
+    gap:12px;
 }
 
 
 .linkCard{
-
-    min-height:
-        160px;
+    min-height:170px;
 
     position:relative;
 
     overflow:hidden;
 
-    padding:
-        21px;
+    padding:21px;
 
     border:
         1px solid var(--border);
@@ -1869,51 +1775,43 @@ section{
     background:
         rgba(255,255,255,.028);
 
-    transition:
-        .25s;
+    transition:.25s;
 }
 
-.linkCard:hover{
 
+.linkCard:hover{
     transform:
         translateY(-5px);
 
     border-color:
-        rgba(90,243,210,.28);
+        rgba(89,243,209,.30);
 
     background:
         rgba(255,255,255,.055);
 }
 
-.linkCard span{
 
+.linkCard span{
     display:block;
 
-    color:
-        var(--muted2);
+    color:var(--muted-2);
 
-    font-size:
-        10px;
+    font-size:10px;
 
-    text-transform:
-        uppercase;
+    text-transform:uppercase;
 
-    letter-spacing:
-        .13em;
+    letter-spacing:.13em;
 }
 
-.linkCard strong{
 
+.linkCard strong{
     display:block;
 
-    margin-top:
-        66px;
+    margin-top:72px;
 
-    font-size:
-        18px;
+    font-size:18px;
 
-    letter-spacing:
-        -.025em;
+    letter-spacing:-.025em;
 }
 
 
@@ -1922,11 +1820,12 @@ section{
 ========================================================= */
 
 .roadmap{
-
     display:grid;
 
     grid-template-columns:
         repeat(4,1fr);
+
+    overflow:hidden;
 
     border:
         1px solid var(--border);
@@ -1934,59 +1833,50 @@ section{
     border-radius:
         27px;
 
-    overflow:hidden;
-
     background:
         rgba(255,255,255,.02);
 }
 
 
 .phase{
-
-    min-height:
-        285px;
-
-    padding:
-        26px;
-
     position:relative;
+
+    min-height:290px;
+
+    padding:26px;
 
     border-right:
         1px solid var(--border);
 }
 
-.phase:last-child{
 
+.phase:last-child{
     border-right:0;
 }
 
-.phaseCurrent{
 
+.phase.current{
     background:
-
         linear-gradient(
             180deg,
-            rgba(90,243,210,.055),
+            rgba(89,243,209,.055),
             transparent
         );
 }
 
-.phaseCurrent:before{
 
+.phase.current::before{
     content:"";
 
     position:absolute;
 
     top:0;
-
     left:0;
-
     right:0;
 
     height:2px;
 
     background:
-
         linear-gradient(
             90deg,
             var(--aqua),
@@ -1994,45 +1884,139 @@ section{
         );
 }
 
+
 .phaseLabel{
+    color:var(--muted-2);
 
-    color:
-        var(--muted2);
+    font-size:10px;
 
-    font-size:
-        10px;
+    text-transform:uppercase;
 
-    text-transform:
-        uppercase;
-
-    letter-spacing:
-        .13em;
+    letter-spacing:.13em;
 }
+
 
 .phase h3{
-
     margin:
-        78px 0 10px;
+        80px 0 10px;
 
-    font-size:
-        24px;
+    font-size:24px;
 
-    letter-spacing:
-        -.035em;
+    letter-spacing:-.035em;
 }
 
-.phase p{
 
+.phase p{
     margin:0;
 
-    color:
-        var(--muted);
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.66;
+}
+
+
+/* =========================================================
+   TELEGRAM CTA
+========================================================= */
+
+.cta{
+    position:relative;
+
+    overflow:hidden;
+
+    padding:62px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        34px;
+
+    background:
+        radial-gradient(
+            circle at 80% 25%,
+            rgba(88,186,255,.13),
+            transparent 27%
+        ),
+        radial-gradient(
+            circle at 16% 82%,
+            rgba(140,115,255,.13),
+            transparent 27%
+        ),
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.06),
+            rgba(255,255,255,.02)
+        );
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+.cta::before{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    opacity:.30;
+
+    background-image:
+        radial-gradient(
+            rgba(255,255,255,.17) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        22px 22px;
+
+    mask-image:
+        linear-gradient(
+            90deg,
+            transparent,
+            black,
+            transparent
+        );
+}
+
+
+.ctaContent{
+    position:relative;
+
+    z-index:2;
+
+    max-width:850px;
+}
+
+
+.cta h2{
+    margin:0;
 
     font-size:
-        13px;
+        clamp(
+            44px,
+            6vw,
+            80px
+        );
 
-    line-height:
-        1.65;
+    line-height:.95;
+
+    letter-spacing:-.06em;
+}
+
+
+.cta p{
+    max-width:670px;
+
+    color:var(--muted);
+
+    font-size:16px;
+
+    line-height:1.75;
 }
 
 
@@ -2041,31 +2025,26 @@ section{
 ========================================================= */
 
 .faq{
-
-    max-width:
-        920px;
+    max-width:920px;
 
     margin:auto;
 }
 
 
 .faqItem{
-
     border-bottom:
         1px solid var(--border);
 }
 
 
 .faqQuestion{
-
     width:100%;
 
     display:flex;
 
     align-items:center;
 
-    justify-content:
-        space-between;
+    justify-content:space-between;
 
     gap:20px;
 
@@ -2082,44 +2061,33 @@ section{
 
     cursor:pointer;
 
-    font-size:
-        17px;
+    font-size:17px;
 
-    font-weight:
-        750;
+    font-weight:750;
 }
 
 
 .faqPlus{
+    color:var(--muted);
 
-    color:
-        var(--muted);
+    font-size:25px;
 
-    font-size:
-        25px;
-
-    transition:
-        .25s;
+    transition:.25s;
 }
 
 
 .faqAnswer{
-
     max-height:0;
 
     overflow:hidden;
 
-    padding-right:
-        60px;
+    padding-right:60px;
 
-    color:
-        var(--muted);
+    color:var(--muted);
 
-    font-size:
-        14px;
+    font-size:14px;
 
-    line-height:
-        1.75;
+    line-height:1.75;
 
     transition:
         max-height .35s,
@@ -2129,18 +2097,14 @@ section{
 
 .faqItem.open
 .faqAnswer{
+    max-height:260px;
 
-    max-height:
-        260px;
-
-    padding-bottom:
-        22px;
+    padding-bottom:22px;
 }
 
 
 .faqItem.open
 .faqPlus{
-
     transform:
         rotate(45deg);
 }
@@ -2151,20 +2115,18 @@ section{
 ========================================================= */
 
 .reveal{
-
     opacity:0;
 
     transform:
         translateY(28px);
 
     transition:
-
         opacity .75s ease,
         transform .75s ease;
 }
 
-.reveal.visible{
 
+.reveal.visible{
     opacity:1;
 
     transform:none;
@@ -2176,7 +2138,6 @@ section{
 ========================================================= */
 
 footer{
-
     position:relative;
 
     z-index:2;
@@ -2190,20 +2151,17 @@ footer{
 
 
 .footerTop{
-
     display:flex;
 
     align-items:flex-start;
 
-    justify-content:
-        space-between;
+    justify-content:space-between;
 
     gap:35px;
 }
 
 
 .footerBrand{
-
     display:flex;
 
     align-items:center;
@@ -2211,103 +2169,82 @@ footer{
     gap:12px;
 }
 
+
 .footerBrand img{
-
     width:48px;
-
     height:48px;
 
     object-fit:contain;
 }
 
-.footerBrand strong{
 
+.footerBrand strong{
     display:block;
 
-    font-size:
-        18px;
+    font-size:18px;
 }
 
-.footerBrand span{
 
+.footerBrand span{
     display:block;
 
-    margin-top:
-        3px;
+    margin-top:3px;
 
-    color:
-        var(--muted2);
+    color:var(--muted-2);
 
-    font-size:
-        11px;
+    font-size:11px;
 }
 
 
 .footerLinks{
-
     display:flex;
 
     flex-wrap:wrap;
 
-    justify-content:
-        flex-end;
+    justify-content:flex-end;
 
-    gap:
-        18px;
+    gap:18px;
 }
+
 
 .footerLinks a{
+    color:var(--muted);
 
-    color:
-        var(--muted);
+    font-size:12px;
 
-    font-size:
-        12px;
-
-    transition:
-        .2s;
+    transition:.2s;
 }
 
-.footerLinks a:hover{
 
+.footerLinks a:hover{
     color:#fff;
 }
 
 
 .footerBottom{
-
     display:flex;
 
-    justify-content:
-        space-between;
+    justify-content:space-between;
 
-    gap:
-        35px;
+    gap:35px;
 
-    padding-top:
-        24px;
+    padding-top:24px;
 
-    margin-top:
-        28px;
+    margin-top:28px;
 
     border-top:
         1px solid var(--border);
 
-    color:
-        var(--muted2);
+    color:var(--muted-2);
 
-    font-size:
-        10px;
+    font-size:10px;
 
-    line-height:
-        1.7;
+    line-height:1.7;
 }
 
 
 .disclaimer{
-
-    max-width:
-        790px;
+    max-width:800px;
 }
 
 
@@ -2316,11 +2253,9 @@ footer{
 ========================================================= */
 
 .toast{
-
     position:fixed;
 
     left:50%;
-
     bottom:25px;
 
     z-index:500;
@@ -2329,7 +2264,7 @@ footer{
         11px 15px;
 
     border:
-        1px solid var(--border2);
+        1px solid var(--border-strong);
 
     border-radius:
         12px;
@@ -2339,8 +2274,7 @@ footer{
 
     color:#fff;
 
-    font-size:
-        12px;
+    font-size:12px;
 
     opacity:0;
 
@@ -2349,16 +2283,15 @@ footer{
     transform:
         translate(-50%,20px);
 
-    transition:
-        .25s;
+    transition:.25s;
 
     box-shadow:
         0 25px 70px
         rgba(0,0,0,.4);
 }
 
-.toast.show{
 
+.toast.show{
     opacity:1;
 
     transform:
@@ -2367,55 +2300,47 @@ footer{
 
 
 /* =========================================================
-   MOBILE
+   RESPONSIVE
 ========================================================= */
 
 @media(max-width:1050px){
 
-    .heroGrid{
-
-        grid-template-columns:
-            1fr;
-    }
-
-    .tokenStage{
-
-        min-height:
-            480px;
+    .navLinks{
+        display:none;
     }
 
     .cards{
-
         grid-template-columns:
             repeat(2,1fr);
     }
 
-    .assetShell{
+    .crossoverGrid{
+        grid-template-columns:
+            1fr;
+    }
 
+    .assetShell{
         grid-template-columns:
             1fr;
     }
 
     .linksGrid{
-
         grid-template-columns:
             repeat(2,1fr);
     }
 
     .roadmap{
-
         grid-template-columns:
             repeat(2,1fr);
     }
 
     .phase:nth-child(2){
-
         border-right:0;
     }
 
-    .navLinks{
-
-        display:none;
+    .fullImageFeature,
+    .multisport{
+        min-height:650px;
     }
 }
 
@@ -2423,115 +2348,95 @@ footer{
 @media(max-width:720px){
 
     .container{
-
         width:
             calc(100% - 22px);
     }
 
     .navWrap{
-
         top:10px;
     }
 
     .nav{
-
-        border-radius:
-            15px;
+        border-radius:15px;
     }
 
-    .navActions
-    .btnTrade{
-
+    .navActions .btnTrade{
         display:none;
     }
 
-    .brandText small{
-
+    .brand small{
         display:none;
     }
 
     .hero{
+        min-height:880px;
 
-        padding-top:
-            115px;
+        padding:
+            130px 0 60px;
+    }
+
+    .heroBackground{
+        background:
+            linear-gradient(
+                0deg,
+                rgba(3,4,7,.98) 0%,
+                rgba(3,4,7,.65) 54%,
+                rgba(3,4,7,.15) 100%
+            ),
+            url("assets/hero-afl.png");
+
+        background-size:cover;
+
+        background-position:
+            62% center;
     }
 
     .hero h1{
-
-        font-size:
-            60px;
+        font-size:60px;
     }
 
-    .tokenStage{
-
-        min-height:
-            410px;
-    }
-
-    .ring1{
-
-        width:
-            350px;
-
-        height:
-            350px;
-    }
-
-    .ring2{
-
-        width:
-            285px;
-
-        height:
-            285px;
-    }
-
-    .ring3{
-
-        width:
-            390px;
-
-        height:
-            200px;
+    .heroStats{
+        gap:20px;
     }
 
     section{
-
         padding:
             82px 0;
     }
 
-    .sectionTop{
-
+    .sectionHead{
         display:block;
     }
 
-    .cards{
+    .sectionDescription{
+        margin-top:20px;
+    }
 
+    .cards{
         grid-template-columns:
             1fr;
     }
 
-    .linksGrid{
+    .crossoverCard{
+        min-height:520px;
+    }
 
+    .linksGrid{
         grid-template-columns:
             1fr;
     }
 
     .statsGrid{
-
         grid-template-columns:
             1fr;
     }
 
     .roadmap{
-
         grid-template-columns:
             1fr;
     }
 
     .phase{
-
         border-right:0;
 
         border-bottom:
@@ -2539,40 +2444,57 @@ footer{
     }
 
     .phase:last-child{
-
         border-bottom:0;
     }
 
-    .featureBand{
+    .fullImageFeature,
+    .multisport{
+        min-height:600px;
+    }
 
+    .fullImageContent,
+    .multisportContent{
+        left:25px;
+        right:25px;
+        bottom:28px;
+    }
+
+    .cta{
         padding:
-            35px 24px;
+            36px 24px;
     }
 
     .footerTop{
-
         display:block;
     }
 
     .footerLinks{
+        justify-content:flex-start;
 
-        justify-content:
-            flex-start;
-
-        margin-top:
-            25px;
+        margin-top:25px;
     }
 
     .footerBottom{
-
         display:block;
     }
 }
 
 
-/* ========================================================= */
+@media(prefers-reduced-motion:reduce){
+
+    *{
+        animation-duration:.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+        transition-duration:.01ms !important;
+
+        scroll-behavior:auto !important;
+    }
+}
 
 </style>
+
 </head>
 
 
@@ -2582,15 +2504,14 @@ footer{
 <canvas id="particles"></canvas>
 
 <div
-    class="cursorGlow"
-    id="cursorGlow">
+class="cursorGlow"
+id="cursorGlow">
 </div>
 
 
-
-<!-- =======================================================
+<!-- ======================================================
      NAV
-======================================================= -->
+====================================================== -->
 
 <div class="navWrap">
 
@@ -2600,22 +2521,22 @@ footer{
 
 
 <a
-    class="brand"
-    href="#home">
+class="brand"
+href="#home">
 
-    <img
-        src="assets/p347.png"
-        alt="PROJECT 347">
+<img
+src="assets/p347.png"
+alt="PROJECT 347">
 
-    <div class="brandText">
+<div>
 
-        PROJECT 347
+PROJECT 347
 
-        <small>
-            Global Talent
-        </small>
+<small>
+Global Talent
+</small>
 
-    </div>
+</div>
 
 </a>
 
@@ -2626,20 +2547,20 @@ footer{
 Mission
 </a>
 
+<a href="#afl">
+Australian Football
+</a>
+
+<a href="#crossover">
+Crossover
+</a>
+
 <a href="#asset">
 P347
 </a>
 
-<a href="#links">
-Links
-</a>
-
 <a href="#roadmap">
 Roadmap
-</a>
-
-<a href="#faq">
-FAQ
 </a>
 
 </div>
@@ -2647,30 +2568,29 @@ FAQ
 
 <div class="navActions">
 
-
 <a
-    class="btn btnTrade"
-    href="https://lobstr.co/trade/native/P347:GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
-    target="_blank"
-    rel="noopener">
+class="btn btnTrade"
+href="https://lobstr.co/trade/native/P347:GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
+target="_blank"
+rel="noopener">
 
-    Trade P347 ↗
+Trade P347 ↗
 
 </a>
 
 
 <a
-    class="btn btnPrimary"
-    href="https://t.me/project_347"
-    target="_blank"
-    rel="noopener">
+class="btn btnPrimary"
+href="https://t.me/project_347"
+target="_blank"
+rel="noopener">
 
-    Telegram ↗
+Telegram ↗
 
 </a>
-
 
 </div>
+
 
 </nav>
 
@@ -2679,36 +2599,42 @@ FAQ
 </div>
 
 
-
-<!-- =======================================================
+<!-- ======================================================
      HERO
-======================================================= -->
+====================================================== -->
 
 <main id="home">
 
 
 <section class="hero">
 
-<div class="container heroGrid">
+
+<div class="heroBackground"></div>
 
 
-<div class="reveal visible">
+<div class="container">
+
+
+<div class="heroContent reveal visible">
 
 
 <div class="eyebrow">
 
 <span class="liveDot"></span>
 
-Built on Stellar Mainnet
+Australian Football • Global Talent
 
 </div>
 
 
 <h1>
 
-GLOBAL
+PROJECT
+
 <span class="gradientText">
-TALENT.
+
+347.
+
 </span>
 
 </h1>
@@ -2716,9 +2642,9 @@ TALENT.
 
 <p class="heroText">
 
-PROJECT 347 connects global talent discovery,
-athlete development and Australian Football
-through one ambitious digital ecosystem.
+A global talent discovery and athlete development initiative
+built around Australian Rules Football, crossover scouting
+and a wider pathway for exceptional athletes.
 
 </p>
 
@@ -2743,16 +2669,16 @@ href="https://lobstr.co/trade/native/P347:GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIO
 target="_blank"
 rel="noopener">
 
-Trade P347
+Trade P347 ↗
 
 </a>
 
 
 <a
 class="btn"
-href="#asset">
+href="#afl">
 
-Explore P347 ↓
+Explore the Project ↓
 
 </a>
 
@@ -2766,11 +2692,37 @@ Explore P347 ↓
 <div>
 
 <strong>
+AFL / WAFL
+</strong>
+
+<span>
+Core Sport
+</span>
+
+</div>
+
+
+<div>
+
+<strong>
+Ruck / KPP
+</strong>
+
+<span>
+Talent Profiles
+</span>
+
+</div>
+
+
+<div>
+
+<strong>
 100,000,000
 </strong>
 
 <span>
-Fixed Supply
+P347 Supply
 </span>
 
 </div>
@@ -2779,37 +2731,11 @@ Fixed Supply
 <div>
 
 <strong>
-P347
+Stellar
 </strong>
 
 <span>
-Asset Code
-</span>
-
-</div>
-
-
-<div>
-
-<strong>
 Mainnet
-</strong>
-
-<span>
-Stellar Network
-</span>
-
-</div>
-
-
-<div>
-
-<strong>
-Locked
-</strong>
-
-<span>
-Issuer Master Key
 </span>
 
 </div>
@@ -2821,79 +2747,46 @@ Issuer Master Key
 </div>
 
 
-
-<div class="tokenStage reveal">
-
-
-<div class="ring ring1"></div>
-<div class="ring ring2"></div>
-<div class="ring ring3"></div>
-
-
-<div
-class="tokenCore"
-id="tokenCore">
-
-<img
-src="assets/p347.png"
-alt="P347">
-
 </div>
 
-
-<div class="floatTag tag1">
-
-NETWORK
-<b>MAINNET</b>
-
-</div>
-
-
-<div class="floatTag tag2">
-
-SUPPLY
-<b>100M</b>
-
-</div>
-
-
-<div class="floatTag tag3">
-
-STATUS
-<b>LIVE</b>
-
-</div>
-
-
-</div>
-
-
-</div>
 
 </section>
 
 
-
-<!-- =======================================================
+<!-- ======================================================
      TICKER
-======================================================= -->
-
+====================================================== -->
 
 <div class="ticker">
 
 <div class="tickerTrack">
 
-
 <div class="tickerItem">
 PROJECT 347
 </div>
 
 <div class="tickerItem">
-Global Talent
+Australian Football
 </div>
 
 <div class="tickerItem">
-Australian Football
+Talent Discovery
+</div>
+
+<div class="tickerItem">
+Ruck
+</div>
+
+<div class="tickerItem">
+KPP
+</div>
+
+<div class="tickerItem">
+Basketball Crossover
+</div>
+
+<div class="tickerItem">
+Gaelic Football
 </div>
 
 <div class="tickerItem">
@@ -2904,29 +2797,33 @@ Athlete Development
 P347
 </div>
 
-<div class="tickerItem">
-Stellar Mainnet
-</div>
-
-<div class="tickerItem">
-100M Fixed Supply
-</div>
-
-<div class="tickerItem">
-Trade on LOBSTR
-</div>
-
 
 <div class="tickerItem">
 PROJECT 347
 </div>
 
 <div class="tickerItem">
-Global Talent
+Australian Football
 </div>
 
 <div class="tickerItem">
-Australian Football
+Talent Discovery
+</div>
+
+<div class="tickerItem">
+Ruck
+</div>
+
+<div class="tickerItem">
+KPP
+</div>
+
+<div class="tickerItem">
+Basketball Crossover
+</div>
+
+<div class="tickerItem">
+Gaelic Football
 </div>
 
 <div class="tickerItem">
@@ -2937,36 +2834,21 @@ Athlete Development
 P347
 </div>
 
-<div class="tickerItem">
-Stellar Mainnet
-</div>
-
-<div class="tickerItem">
-100M Fixed Supply
-</div>
-
-<div class="tickerItem">
-Trade on LOBSTR
-</div>
-
-
 </div>
 
 </div>
 
 
-
-<!-- =======================================================
+<!-- ======================================================
      MISSION
-======================================================= -->
-
+====================================================== -->
 
 <section id="mission">
 
 <div class="container">
 
 
-<div class="sectionTop reveal">
+<div class="sectionHead reveal">
 
 
 <div>
@@ -2977,9 +2859,11 @@ Trade on LOBSTR
 
 </div>
 
+
 <h2 class="sectionTitle">
 
-Talent can begin anywhere.
+Find athletic potential
+where others may not look.
 
 </h2>
 
@@ -2988,15 +2872,15 @@ Talent can begin anywhere.
 
 <div class="sectionDescription">
 
-PROJECT 347 is designed around a simple idea:
-discover wider, develop intentionally and create
-new pathways into Australian Football.
+PROJECT 347 combines Australian Football development
+with a wider scouting philosophy — identifying athletes
+whose size, movement, athleticism and competitive traits
+may translate into new roles and opportunities.
 
 </div>
 
 
 </div>
-
 
 
 <div class="cards">
@@ -3012,19 +2896,18 @@ new pathways into Australian Football.
 
 <h3>
 
-Global Scouting
+Global Talent
 
 </h3>
 
 <p>
 
-A broader approach to identifying athletic
-potential beyond traditional recruitment channels.
+Expand the search beyond traditional pipelines and identify
+athletes with transferable physical and competitive qualities.
 
 </p>
 
 </div>
-
 
 
 <div class="card tilt reveal">
@@ -3037,19 +2920,18 @@ potential beyond traditional recruitment channels.
 
 <h3>
 
-Athletic Potential
+Athletic Profile
 
 </h3>
 
 <p>
 
-Build a clearer picture of physical ability,
-movement, upside and sport-specific potential.
+Height, reach, vertical ability, movement, endurance and game
+awareness can all help reveal potential for Australian Football.
 
 </p>
 
 </div>
-
 
 
 <div class="card tilt reveal">
@@ -3062,19 +2944,18 @@ movement, upside and sport-specific potential.
 
 <h3>
 
-Athlete Pathway
+Football Pathway
 
 </h3>
 
 <p>
 
-Create a structured environment that supports
-progression from potential toward opportunity.
+Build a more deliberate development process around the demands
+of roles such as Ruck, Key Position and running positions.
 
 </p>
 
 </div>
-
 
 
 <div class="card tilt reveal">
@@ -3087,14 +2968,14 @@ progression from potential toward opportunity.
 
 <h3>
 
-Global Community
+One Ecosystem
 
 </h3>
 
 <p>
 
-Connect athletes, supporters and the wider
-PROJECT 347 ecosystem through one digital identity.
+Bring athletes, supporters, development ideas and the digital
+PROJECT 347 identity into one coherent global platform.
 
 </p>
 
@@ -3103,107 +2984,352 @@ PROJECT 347 ecosystem through one digital identity.
 
 </div>
 
-</div>
-
-</section>
-
-
-
-<!-- =======================================================
-     BIG MESSAGE
-======================================================= -->
-
-
-<section>
-
-<div class="container">
-
-<div class="featureBand reveal">
-
-
-<div class="featureContent">
-
-
-<div class="kicker">
-
-PROJECT 347 / GLOBAL TALENT
-
-</div>
-
-
-<h2>
-
-One vision.
-One pathway.
-A global field.
-
-</h2>
-
-
-<p>
-
-PROJECT 347 is built to explore talent beyond
-traditional borders and create a stronger digital
-and athletic ecosystem around Australian Football.
-
-</p>
-
-
-<div class="heroActions">
-
-
-<a
-class="btn btnPrimary"
-href="https://t.me/project_347"
-target="_blank">
-
-Join Official Telegram ↗
-
-</a>
-
-
-<a
-class="btn"
-href="#asset">
-
-Discover P347 ↓
-
-</a>
-
-
-</div>
-
-
-</div>
-
-</div>
 
 </div>
 
 </section>
 
 
+<!-- ======================================================
+     AFL CORE
+====================================================== -->
 
-<!-- =======================================================
-     P347
-======================================================= -->
-
-
-<section id="asset">
+<section id="afl">
 
 <div class="container">
 
 
-<div class="sectionTop reveal">
+<div class="sectionHead reveal">
 
 
 <div>
 
 <div class="kicker">
 
-02 / DIGITAL ASSET
+02 / CORE SPORT
 
 </div>
+
+
+<h2 class="sectionTitle">
+
+Australian Rules Football
+is the center of PROJECT 347.
+
+</h2>
+
+</div>
+
+
+<div class="sectionDescription">
+
+AFL and WAFL environments form the sporting core of the project,
+with particular interest in identifying and developing athletic
+profiles suited to roles such as Ruck and Key Position Player.
+
+</div>
+
+
+</div>
+
+
+<div class="fullImageFeature reveal">
+
+
+<img
+src="assets/hero-afl.png"
+alt="Australian Rules Football PROJECT 347">
+
+
+<div class="fullImageContent">
+
+
+<div class="kicker">
+
+AUSTRALIAN FOOTBALL
+
+</div>
+
+
+<h2>
+
+Height.
+Athleticism.
+Football potential.
+
+</h2>
+
+
+<p>
+
+PROJECT 347 is designed around the idea that elite football
+potential can exist outside the traditional pathway and can
+sometimes be found in athletes developed by entirely different sports.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     CROSSOVER
+====================================================== -->
+
+<section id="crossover">
+
+<div class="container">
+
+
+<div class="sectionHead reveal">
+
+
+<div>
+
+<div class="kicker">
+
+03 / CROSSOVER TALENT
+
+</div>
+
+
+<h2 class="sectionTitle">
+
+Different sport.
+Transferable advantage.
+
+</h2>
+
+</div>
+
+
+<div class="sectionDescription">
+
+Basketball and Gaelic Football provide two clear examples
+of how elite attributes developed elsewhere can potentially
+translate into Australian Football.
+
+</div>
+
+
+</div>
+
+
+<div class="crossoverGrid">
+
+
+<!-- BASKETBALL -->
+
+<div class="crossoverCard reveal">
+
+
+<img
+src="assets/basketball-crossover.png"
+alt="Basketball crossover to Australian Football">
+
+
+<div class="crossoverContent">
+
+
+<div class="crossoverTag">
+
+Basketball → Ruck / KPP
+
+</div>
+
+
+<h3>
+
+Height meets
+vertical athleticism.
+
+</h3>
+
+
+<p>
+
+Very tall basketball athletes can bring reach, jumping ability,
+coordination and aerial instincts that may translate naturally
+into Ruck and Key Position development.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+<!-- GAELIC -->
+
+<div class="crossoverCard reveal">
+
+
+<img
+src="assets/gaelic-crossover.png"
+alt="Gaelic football crossover pathway">
+
+
+<div class="crossoverContent">
+
+
+<div class="crossoverTag">
+
+Gaelic Football → Running Roles
+
+</div>
+
+
+<h3>
+
+Movement meets
+field intelligence.
+
+</h3>
+
+
+<p>
+
+Gaelic Football can produce athletes with endurance,
+ball movement, space awareness and running patterns
+that may suit roles such as wing or half-back.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     BROADER SPORTING ECOSYSTEM
+====================================================== -->
+
+<section>
+
+<div class="container">
+
+
+<div class="sectionHead reveal">
+
+
+<div>
+
+<div class="kicker">
+
+04 / A WIDER SPORTING NETWORK
+
+</div>
+
+
+<h2 class="sectionTitle">
+
+Australian Football first.
+A broader sporting vision around it.
+
+</h2>
+
+</div>
+
+
+<div class="sectionDescription">
+
+Rugby League, cricket, athletics and tennis represent part
+of the wider sporting context around PROJECT 347 —
+bringing different performance cultures, skills and perspectives
+into the larger vision.
+
+</div>
+
+
+</div>
+
+
+<div class="multisport reveal">
+
+
+<img
+src="assets/multisport-ecosystem.png"
+alt="PROJECT 347 broader sporting ecosystem">
+
+
+<div class="multisportContent">
+
+
+<div class="kicker">
+
+MULTI-SPORT THINKING
+
+</div>
+
+
+<h2>
+
+One sporting vision.
+Many sources of excellence.
+
+</h2>
+
+
+<p>
+
+PROJECT 347 places Australian Rules Football at the center,
+while remaining open to talent, knowledge and athletic influence
+from across the wider sporting landscape.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     P347
+====================================================== -->
+
+<section id="asset">
+
+<div class="container">
+
+
+<div class="sectionHead reveal">
+
+
+<div>
+
+<div class="kicker">
+
+05 / DIGITAL ASSET
+
+</div>
+
 
 <h2 class="sectionTitle">
 
@@ -3216,21 +3342,17 @@ Meet P347.
 
 <div class="sectionDescription">
 
-P347 is the Stellar-based digital asset associated
-with the PROJECT 347 ecosystem.
-
-Its issuer, supply and public metadata
-are verifiable on Stellar.
+P347 is the Stellar digital asset associated with the
+PROJECT 347 ecosystem. Its issuer, supply and public metadata
+are verifiable through Stellar infrastructure.
 
 </div>
 
 
 </div>
-
 
 
 <div class="assetShell reveal">
-
 
 
 <div class="assetVisual">
@@ -3248,7 +3370,6 @@ alt="P347">
 </div>
 
 
-
 <div class="assetInfo">
 
 
@@ -3257,17 +3378,20 @@ alt="P347">
 
 <div>
 
+
 <div class="assetName">
 
 PROJECT 347
 
 </div>
 
+
 <div class="assetSubtitle">
 
 Stellar Classic Asset
 
 </div>
+
 
 </div>
 
@@ -3280,7 +3404,6 @@ P347
 
 
 </div>
-
 
 
 <div class="statsGrid">
@@ -3303,11 +3426,10 @@ data-target="100000000">
 </div>
 
 
-
 <div class="statBox">
 
 <span>
-Display Decimals
+Decimals
 </span>
 
 <strong>
@@ -3317,7 +3439,6 @@ Display Decimals
 </div>
 
 
-
 <div class="statBox">
 
 <span>
@@ -3325,17 +3446,16 @@ Network
 </span>
 
 <strong>
-Stellar Mainnet
+Mainnet
 </strong>
 
 </div>
 
 
-
 <div class="statBox">
 
 <span>
-Issuer
+Issuer Key
 </span>
 
 <strong>
@@ -3348,8 +3468,8 @@ Locked
 </div>
 
 
-
 <div class="walletBox">
+
 
 <div class="walletLabel">
 
@@ -3379,11 +3499,12 @@ COPY
 
 </div>
 
+
 </div>
 
 
-
 <div class="walletBox">
+
 
 <div class="walletLabel">
 
@@ -3413,8 +3534,8 @@ COPY
 
 </div>
 
-</div>
 
+</div>
 
 
 <div class="assetButtons">
@@ -3423,9 +3544,10 @@ COPY
 <a
 class="btn btnPrimary"
 href="https://lobstr.co/trade/native/P347:GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
-target="_blank">
+target="_blank"
+rel="noopener">
 
-Trade P347 ↗
+Trade P347 on LOBSTR ↗
 
 </a>
 
@@ -3433,7 +3555,8 @@ Trade P347 ↗
 <a
 class="btn"
 href="https://stellar.expert/explorer/public/asset/P347-GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
-target="_blank">
+target="_blank"
+rel="noopener">
 
 StellarExpert ↗
 
@@ -3443,7 +3566,8 @@ StellarExpert ↗
 <a
 class="btn"
 href="/.well-known/stellar.toml"
-target="_blank">
+target="_blank"
+rel="noopener">
 
 stellar.toml ↗
 
@@ -3453,7 +3577,8 @@ stellar.toml ↗
 <a
 class="btn"
 href="https://t.me/project_347"
-target="_blank">
+target="_blank"
+rel="noopener">
 
 Telegram ↗
 
@@ -3483,27 +3608,26 @@ Copy Asset ID
 </section>
 
 
-
-<!-- =======================================================
+<!-- ======================================================
      OFFICIAL LINKS
-======================================================= -->
+====================================================== -->
 
-
-<section id="links">
+<section>
 
 <div class="container">
 
 
-<div class="sectionTop reveal">
+<div class="sectionHead reveal">
 
 
 <div>
 
 <div class="kicker">
 
-03 / OFFICIAL LINKS
+06 / OFFICIAL LINKS
 
 </div>
+
 
 <h2 class="sectionTitle">
 
@@ -3516,14 +3640,13 @@ Everything in one place.
 
 <div class="sectionDescription">
 
-Official PROJECT 347 community,
-trading, metadata and Stellar explorer links.
+Official community, trading, metadata and explorer links
+for PROJECT 347 and P347.
 
 </div>
 
 
 </div>
-
 
 
 <div class="linksGrid reveal">
@@ -3532,24 +3655,25 @@ trading, metadata and Stellar explorer links.
 <a
 class="linkCard"
 href="https://t.me/project_347"
-target="_blank">
+target="_blank"
+rel="noopener">
 
 <span>
 Community
 </span>
 
 <strong>
-Telegram ↗
+Official Telegram ↗
 </strong>
 
 </a>
 
 
-
 <a
 class="linkCard"
 href="https://lobstr.co/trade/native/P347:GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
-target="_blank">
+target="_blank"
+rel="noopener">
 
 <span>
 Market
@@ -3562,11 +3686,11 @@ Trade P347 ↗
 </a>
 
 
-
 <a
 class="linkCard"
 href="https://stellar.expert/explorer/public/asset/P347-GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
-target="_blank">
+target="_blank"
+rel="noopener">
 
 <span>
 Explorer
@@ -3579,11 +3703,11 @@ StellarExpert ↗
 </a>
 
 
-
 <a
 class="linkCard"
 href="/.well-known/stellar.toml"
-target="_blank">
+target="_blank"
+rel="noopener">
 
 <span>
 Metadata
@@ -3604,27 +3728,26 @@ stellar.toml ↗
 </section>
 
 
-
-<!-- =======================================================
+<!-- ======================================================
      ROADMAP
-======================================================= -->
-
+====================================================== -->
 
 <section id="roadmap">
 
 <div class="container">
 
 
-<div class="sectionTop reveal">
+<div class="sectionHead reveal">
 
 
 <div>
 
 <div class="kicker">
 
-04 / ROADMAP
+07 / ROADMAP
 
 </div>
+
 
 <h2 class="sectionTitle">
 
@@ -3637,21 +3760,21 @@ Built in stages.
 
 <div class="sectionDescription">
 
-PROJECT 347 is being developed step by step,
-from infrastructure and community to visibility
-and long-term athlete development.
+The PROJECT 347 ecosystem develops from infrastructure
+and identity into community, talent discovery and deeper
+sporting pathways.
 
 </div>
 
 
 </div>
-
 
 
 <div class="roadmap reveal">
 
 
-<div class="phase phaseCurrent">
+<div class="phase current">
+
 
 <div class="phaseLabel">
 
@@ -3659,24 +3782,27 @@ PHASE 01 / LIVE
 
 </div>
 
+
 <h3>
 
 Foundation
 
 </h3>
 
+
 <p>
 
-Domain, brand identity, Stellar infrastructure,
-P347 issuance and core project framework.
+Brand identity, project domain, Stellar infrastructure,
+P347 issuance and the core public platform.
 
 </p>
+
 
 </div>
 
 
-
 <div class="phase">
+
 
 <div class="phaseLabel">
 
@@ -3684,49 +3810,55 @@ PHASE 02 / ACTIVE
 
 </div>
 
+
 <h3>
 
 Community
 
 </h3>
 
+
 <p>
 
-Telegram expansion, public communication
-and PROJECT 347 community development.
+Telegram expansion, public communication and stronger
+PROJECT 347 visibility.
 
 </p>
+
 
 </div>
 
 
-
 <div class="phase">
+
 
 <div class="phaseLabel">
 
-PHASE 03 / NEXT
+PHASE 03 / DEVELOPMENT
 
 </div>
+
 
 <h3>
 
-Visibility
+Talent Network
 
 </h3>
 
+
 <p>
 
-Broader ecosystem visibility,
-public discovery and Stellar integrations.
+Expand crossover scouting concepts and athlete identification
+across multiple sporting backgrounds.
 
 </p>
+
 
 </div>
 
 
-
 <div class="phase">
+
 
 <div class="phaseLabel">
 
@@ -3734,18 +3866,21 @@ PHASE 04 / FUTURE
 
 </div>
 
+
 <h3>
 
-Expansion
+Pathways
 
 </h3>
 
+
 <p>
 
-Long-term athlete development initiatives
-and deeper PROJECT 347 ecosystem integration.
+Develop deeper opportunities around Australian Football,
+athlete development and the wider PROJECT 347 ecosystem.
 
 </p>
+
 
 </div>
 
@@ -3758,26 +3893,24 @@ and deeper PROJECT 347 ecosystem integration.
 </section>
 
 
-
-<!-- =======================================================
-     TELEGRAM
-======================================================= -->
-
+<!-- ======================================================
+     TELEGRAM CTA
+====================================================== -->
 
 <section>
 
 <div class="container">
 
 
-<div class="featureBand reveal">
+<div class="cta reveal">
 
 
-<div class="featureContent">
+<div class="ctaContent">
 
 
 <div class="kicker">
 
-05 / COMMUNITY
+08 / COMMUNITY
 
 </div>
 
@@ -3792,9 +3925,9 @@ of PROJECT 347.
 
 <p>
 
-Join the official PROJECT 347 Telegram community
-for project announcements, P347 updates,
-ecosystem developments and future initiatives.
+Join the official Telegram community for PROJECT 347
+announcements, P347 updates, project development and
+future sporting initiatives.
 
 </p>
 
@@ -3805,7 +3938,8 @@ ecosystem developments and future initiatives.
 <a
 class="btn btnPrimary"
 href="https://t.me/project_347"
-target="_blank">
+target="_blank"
+rel="noopener">
 
 Join Telegram ↗
 
@@ -3815,7 +3949,8 @@ Join Telegram ↗
 <a
 class="btn btnTrade"
 href="https://lobstr.co/trade/native/P347:GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
-target="_blank">
+target="_blank"
+rel="noopener">
 
 Trade P347 ↗
 
@@ -3836,26 +3971,26 @@ Trade P347 ↗
 </section>
 
 
-
-<!-- =======================================================
+<!-- ======================================================
      FAQ
-======================================================= -->
-
+====================================================== -->
 
 <section id="faq">
 
 <div class="container">
 
 
-<div class="sectionTop reveal">
+<div class="sectionHead reveal">
+
 
 <div>
 
 <div class="kicker">
 
-06 / FAQ
+09 / FAQ
 
 </div>
+
 
 <h2 class="sectionTitle">
 
@@ -3863,31 +3998,26 @@ Quick answers.
 
 </h2>
 
-</div>
 
 </div>
 
+
+</div>
 
 
 <div class="faq reveal">
 
 
-
 <div class="faqItem">
-
 
 <button class="faqQuestion">
 
 <span>
-
 What is PROJECT 347?
-
 </span>
 
 <span class="faqPlus">
-
 +
-
 </span>
 
 </button>
@@ -3895,32 +4025,103 @@ What is PROJECT 347?
 
 <div class="faqAnswer">
 
-PROJECT 347 is a global talent discovery
-and athlete development initiative focused
-on creating new pathways into Australian Football.
+PROJECT 347 is a global talent discovery and athlete
+development initiative with Australian Rules Football
+at the center of its sporting vision.
 
 </div>
 
-
 </div>
-
 
 
 <div class="faqItem">
 
+<button class="faqQuestion">
+
+<span>
+Why basketball?
+</span>
+
+<span class="faqPlus">
++
+</span>
+
+</button>
+
+
+<div class="faqAnswer">
+
+Basketball can produce very tall, explosive and coordinated
+athletes whose vertical ability, reach and movement may translate
+into roles such as Ruck or Key Position Player.
+
+</div>
+
+</div>
+
+
+<div class="faqItem">
 
 <button class="faqQuestion">
 
 <span>
+Why Gaelic Football?
+</span>
 
+<span class="faqPlus">
++
+</span>
+
+</button>
+
+
+<div class="faqAnswer">
+
+Gaelic Football develops endurance, movement, field awareness
+and ball skills that can provide a strong crossover foundation
+for certain running roles in Australian Football.
+
+</div>
+
+</div>
+
+
+<div class="faqItem">
+
+<button class="faqQuestion">
+
+<span>
+What role do other sports play?
+</span>
+
+<span class="faqPlus">
++
+</span>
+
+</button>
+
+
+<div class="faqAnswer">
+
+Rugby League, cricket, athletics and tennis form part of the
+broader sporting vision around PROJECT 347, bringing different
+athletic qualities and sporting perspectives into the ecosystem.
+
+</div>
+
+</div>
+
+
+<div class="faqItem">
+
+<button class="faqQuestion">
+
+<span>
 What is P347?
-
 </span>
 
 <span class="faqPlus">
-
 +
-
 </span>
 
 </button>
@@ -3928,31 +4129,24 @@ What is P347?
 
 <div class="faqAnswer">
 
-P347 is the Stellar-based digital asset
-associated with the PROJECT 347 ecosystem.
+P347 is the Stellar-based digital asset associated with the
+PROJECT 347 ecosystem.
 
 </div>
 
-
 </div>
-
 
 
 <div class="faqItem">
 
-
 <button class="faqQuestion">
 
 <span>
-
-What is the total P347 supply?
-
+What is the P347 supply?
 </span>
 
 <span class="faqPlus">
-
 +
-
 </span>
 
 </button>
@@ -3964,26 +4158,19 @@ The fixed supply is 100,000,000 P347.
 
 </div>
 
-
 </div>
-
 
 
 <div class="faqItem">
 
-
 <button class="faqQuestion">
 
 <span>
-
-Which blockchain is P347 built on?
-
+Where can I trade P347?
 </span>
 
 <span class="faqPlus">
-
 +
-
 </span>
 
 </button>
@@ -3991,79 +4178,12 @@ Which blockchain is P347 built on?
 
 <div class="faqAnswer">
 
-P347 is a classic Stellar asset issued
-on the Stellar Public Network / Mainnet.
+The P347 / XLM market can be accessed through the LOBSTR
+Stellar trading interface using the official trade link on this site.
 
 </div>
 
-
 </div>
-
-
-
-<div class="faqItem">
-
-
-<button class="faqQuestion">
-
-<span>
-
-Where can P347 be traded?
-
-</span>
-
-<span class="faqPlus">
-
-+
-
-</span>
-
-</button>
-
-
-<div class="faqAnswer">
-
-The P347 / XLM market can be accessed
-through the LOBSTR Stellar trading interface.
-
-</div>
-
-
-</div>
-
-
-
-<div class="faqItem">
-
-
-<button class="faqQuestion">
-
-<span>
-
-Where can I follow PROJECT 347?
-
-</span>
-
-<span class="faqPlus">
-
-+
-
-</span>
-
-</button>
-
-
-<div class="faqAnswer">
-
-The official PROJECT 347 Telegram community is:
-
-https://t.me/project_347
-
-</div>
-
-
-</div>
-
 
 
 </div>
@@ -4074,15 +4194,12 @@ https://t.me/project_347
 </section>
 
 
-
 </main>
 
 
-
-<!-- =======================================================
+<!-- ======================================================
      FOOTER
-======================================================= -->
-
+====================================================== -->
 
 <footer>
 
@@ -4113,7 +4230,7 @@ PROJECT 347
 
 <span>
 
-Global Talent • Athlete Development • P347
+Global Talent • Australian Football • P347
 
 </span>
 
@@ -4122,7 +4239,6 @@ Global Talent • Athlete Development • P347
 
 
 </div>
-
 
 
 <div class="footerLinks">
@@ -4142,6 +4258,13 @@ Mission
 </a>
 
 
+<a href="#crossover">
+
+Crossover
+
+</a>
+
+
 <a href="#asset">
 
 P347
@@ -4151,7 +4274,8 @@ P347
 
 <a
 href="https://lobstr.co/trade/native/P347:GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
-target="_blank">
+target="_blank"
+rel="noopener">
 
 Trade
 
@@ -4160,7 +4284,8 @@ Trade
 
 <a
 href="https://stellar.expert/explorer/public/asset/P347-GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM"
-target="_blank">
+target="_blank"
+rel="noopener">
 
 StellarExpert
 
@@ -4169,7 +4294,8 @@ StellarExpert
 
 <a
 href="/.well-known/stellar.toml"
-target="_blank">
+target="_blank"
+rel="noopener">
 
 stellar.toml
 
@@ -4178,7 +4304,8 @@ stellar.toml
 
 <a
 href="https://t.me/project_347"
-target="_blank">
+target="_blank"
+rel="noopener">
 
 Telegram
 
@@ -4191,20 +4318,20 @@ Telegram
 </div>
 
 
-
 <div class="footerBottom">
 
 
 <div class="disclaimer">
 
-PROJECT 347 is a digital ecosystem initiative.
+PROJECT 347 is an independent project focused on talent discovery,
+athlete development and Australian Football pathways.
 
-P347 is a Stellar-based digital asset
-associated with the PROJECT 347 ecosystem.
+References to sports, leagues, clubs or sporting environments are
+descriptive and do not imply official affiliation, endorsement or partnership.
 
-Information on this website is provided
-for informational purposes only and does not
-represent a promise or guarantee of financial return.
+P347 is a Stellar-based digital asset associated with the PROJECT 347 ecosystem.
+Information on this website is provided for informational purposes only and
+does not represent a promise or guarantee of financial return.
 
 </div>
 
@@ -4227,7 +4354,6 @@ PROJECT 347
 </footer>
 
 
-
 <div
 class="toast"
 id="toast">
@@ -4237,9 +4363,7 @@ Copied
 </div>
 
 
-
 <script>
-
 
 /* =========================================================
    YEAR
@@ -4247,7 +4371,6 @@ Copied
 
 document.getElementById("year").textContent =
 new Date().getFullYear();
-
 
 
 /* =========================================================
@@ -4259,9 +4382,7 @@ new IntersectionObserver(
 
 entries => {
 
-entries.forEach(
-
-entry => {
+entries.forEach(entry => {
 
 if(entry.isIntersecting){
 
@@ -4269,9 +4390,7 @@ entry.target.classList.add("visible");
 
 }
 
-}
-
-);
+});
 
 },
 
@@ -4284,16 +4403,11 @@ threshold:.12
 
 document
 .querySelectorAll(".reveal")
-.forEach(
-
-element => {
+.forEach(element => {
 
 revealObserver.observe(element);
 
-}
-
-);
-
+});
 
 
 /* =========================================================
@@ -4302,33 +4416,25 @@ revealObserver.observe(element);
 
 document
 .querySelectorAll(".faqItem")
-.forEach(
-
-item => {
+.forEach(item => {
 
 const button =
 item.querySelector(".faqQuestion");
 
 button.addEventListener(
-
 "click",
-
 () => {
 
 item.classList.toggle("open");
 
 }
-
 );
 
-}
-
-);
-
+});
 
 
 /* =========================================================
-   COPY TO CLIPBOARD
+   TOAST
 ========================================================= */
 
 function showToast(message){
@@ -4347,31 +4453,27 @@ window.toastTimer
 
 window.toastTimer =
 setTimeout(
-
 () => {
 
 toast.classList.remove("show");
 
 },
-
 1600
-
 );
 
 }
 
 
+/* =========================================================
+   COPY
+========================================================= */
 
 document
 .querySelectorAll("[data-copy]")
-.forEach(
-
-button => {
+.forEach(button => {
 
 button.addEventListener(
-
 "click",
-
 async () => {
 
 try{
@@ -4385,7 +4487,6 @@ showToast(
 );
 
 }
-
 catch{
 
 showToast(
@@ -4395,32 +4496,24 @@ showToast(
 }
 
 }
-
 );
 
-}
-
-);
-
+});
 
 
 document
 .getElementById("copyAsset")
 .addEventListener(
-
 "click",
-
 async () => {
 
-const asset =
-
+const assetID =
 "P347-GBRIAU37SFQOMHVE3YJMI2ENPWIR5J7CLUDPIONMQZOCGA3DJA4QOQPM";
-
 
 try{
 
 await navigator.clipboard.writeText(
-asset
+assetID
 );
 
 showToast(
@@ -4428,7 +4521,6 @@ showToast(
 );
 
 }
-
 catch{
 
 showToast(
@@ -4438,9 +4530,7 @@ showToast(
 }
 
 }
-
 );
-
 
 
 /* =========================================================
@@ -4449,19 +4539,14 @@ showToast(
 
 document
 .querySelectorAll(".counter")
-.forEach(
-
-counter => {
-
+.forEach(counter => {
 
 const observer =
 new IntersectionObserver(
 
 entries => {
 
-entries.forEach(
-
-entry => {
+entries.forEach(entry => {
 
 if(!entry.isIntersecting){
 
@@ -4469,16 +4554,13 @@ return;
 
 }
 
-
 const target =
 Number(
 counter.dataset.target
 );
 
-
 const start =
 performance.now();
-
 
 const duration =
 1500;
@@ -4492,9 +4574,7 @@ Math.min(
 1
 );
 
-
 const value =
-
 Math.floor(
 
 target *
@@ -4509,10 +4589,8 @@ Math.pow(
 
 );
 
-
 counter.textContent =
 value.toLocaleString("en-US");
-
 
 if(progress < 1){
 
@@ -4529,14 +4607,11 @@ requestAnimationFrame(
 animate
 );
 
-
 observer.unobserve(
 counter
 );
 
-}
-
-);
+});
 
 },
 
@@ -4546,69 +4621,11 @@ threshold:.45
 
 );
 
-
 observer.observe(
 counter
 );
 
-
-}
-
-);
-
-
-
-/* =========================================================
-   3D TOKEN MOUSE EFFECT
-========================================================= */
-
-const token =
-document.getElementById(
-"tokenCore"
-);
-
-
-document.addEventListener(
-
-"mousemove",
-
-event => {
-
-
-const x =
-
-(
-event.clientX /
-window.innerWidth
--
-.5
-)
-
-*
-18;
-
-
-const y =
-
-(
-event.clientY /
-window.innerHeight
--
-.5
-)
-
-*
--18;
-
-
-token.style.transform =
-
-`rotateY(${x}deg) rotateX(${y}deg)`;
-
-}
-
-);
-
+});
 
 
 /* =========================================================
@@ -4617,58 +4634,42 @@ token.style.transform =
 
 document
 .querySelectorAll(".tilt")
-.forEach(
-
-card => {
-
+.forEach(card => {
 
 card.addEventListener(
-
 "mousemove",
-
 event => {
-
 
 const rect =
 card.getBoundingClientRect();
-
 
 const x =
 event.clientX -
 rect.left;
 
-
 const y =
 event.clientY -
 rect.top;
 
-
 const rotateX =
-
 (
 (y / rect.height)
 -
 .5
 )
-
 *
 -8;
 
-
 const rotateY =
-
 (
 (x / rect.width)
 -
 .5
 )
-
 *
 8;
 
-
 card.style.transform =
-
 `
 perspective(850px)
 rotateX(${rotateX}deg)
@@ -4677,28 +4678,20 @@ translateY(-4px)
 `;
 
 }
-
 );
 
 
 card.addEventListener(
-
 "mouseleave",
-
 () => {
 
 card.style.transform =
 "";
 
 }
-
 );
 
-
-}
-
-);
-
+});
 
 
 /* =========================================================
@@ -4712,32 +4705,26 @@ document.getElementById(
 
 
 document.addEventListener(
-
 "mousemove",
-
 event => {
-
 
 glow.style.opacity =
 ".9";
 
-
 glow.style.left =
-event.clientX + "px";
-
+event.clientX +
+"px";
 
 glow.style.top =
-event.clientY + "px";
-
+event.clientY +
+"px";
 
 }
-
 );
 
 
-
 /* =========================================================
-   PARTICLE NETWORK
+   PARTICLES
 ========================================================= */
 
 const canvas =
@@ -4745,88 +4732,64 @@ document.getElementById(
 "particles"
 );
 
-
 const ctx =
 canvas.getContext(
 "2d"
 );
 
-
-let particles = [];
+let particles =
+[];
 
 
 function resizeCanvas(){
 
-
 canvas.width =
-
 window.innerWidth *
 devicePixelRatio;
 
-
 canvas.height =
-
 window.innerHeight *
 devicePixelRatio;
 
-
 canvas.style.width =
-
 window.innerWidth +
 "px";
 
-
 canvas.style.height =
-
 window.innerHeight +
 "px";
 
-
 ctx.setTransform(
-
 devicePixelRatio,
 0,
 0,
 devicePixelRatio,
 0,
 0
-
 );
-
 
 createParticles();
 
 }
 
 
-
 function createParticles(){
 
-
 const count =
-
 Math.min(
-
-75,
-
+68,
 Math.floor(
 window.innerWidth /
-18
+19
 )
-
 );
 
-
 particles =
-
 Array.from(
-
 {
 length:count
 },
-
 () => ({
-
 x:
 Math.random() *
 window.innerWidth,
@@ -4837,192 +4800,121 @@ window.innerHeight,
 
 vx:
 (Math.random()-.5) *
-.22,
+.20,
 
 vy:
 (Math.random()-.5) *
-.22,
+.20,
 
 radius:
-Math.random()*2 +
+Math.random()*1.8 +
 .3
-
 })
-
 );
 
 }
-
 
 
 function drawParticles(){
 
-
 ctx.clearRect(
-
 0,
 0,
 window.innerWidth,
 window.innerHeight
-
 );
 
-
 for(
-
 let i=0;
-
 i<particles.length;
-
 i++
-
 ){
-
 
 const p =
 particles[i];
 
-
 p.x +=
 p.vx;
-
 
 p.y +=
 p.vy;
 
-
 if(
-
 p.x < 0 ||
-
-p.x >
-window.innerWidth
-
+p.x > window.innerWidth
 ){
 
-p.vx *=
--1;
+p.vx *= -1;
 
 }
-
 
 if(
-
 p.y < 0 ||
-
-p.y >
-window.innerHeight
-
+p.y > window.innerHeight
 ){
 
-p.vy *=
--1;
+p.vy *= -1;
 
 }
-
 
 ctx.beginPath();
 
-
 ctx.arc(
-
 p.x,
-
 p.y,
-
 p.radius,
-
 0,
-
 Math.PI*2
-
 );
 
-
 ctx.fillStyle =
-
-"rgba(255,255,255,.22)";
-
+"rgba(255,255,255,.18)";
 
 ctx.fill();
 
 
-
 for(
-
 let j=i+1;
-
 j<particles.length;
-
 j++
-
 ){
-
 
 const q =
 particles[j];
 
-
 const distance =
-
 Math.hypot(
-
 p.x-q.x,
-
 p.y-q.y
-
 );
 
-
-if(distance < 120){
-
+if(distance < 115){
 
 ctx.beginPath();
 
-
 ctx.moveTo(
-
 p.x,
-
 p.y
-
 );
-
 
 ctx.lineTo(
-
 q.x,
-
 q.y
-
 );
 
-
 ctx.strokeStyle =
-
-`rgba(
-90,
-243,
-210,
-${(1-distance/120)*.18}
-)`;
-
+`rgba(89,243,209,${(1-distance/115)*.13})`;
 
 ctx.lineWidth =
 1;
 
-
 ctx.stroke();
 
+}
 
 }
 
-
 }
-
-
-}
-
 
 requestAnimationFrame(
 drawParticles
@@ -5031,20 +4923,15 @@ drawParticles
 }
 
 
-
 resizeCanvas();
 
 drawParticles();
 
 
 window.addEventListener(
-
 "resize",
-
 resizeCanvas
-
 );
-
 
 </script>
 
